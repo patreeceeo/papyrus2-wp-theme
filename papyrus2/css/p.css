@@ -1,0 +1,11 @@
+
+.p-bg-solid-dark {
+  background-color: #191614;
+}
+
+.p-layout-top-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
