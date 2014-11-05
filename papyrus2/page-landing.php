@@ -7,5 +7,5 @@
 get_header(); ?>
 
 
-<main class="p-layout-full-screen p-bg-solid-dark">
+<main class="p-layout-full-screen p-bg-solid-dark u-zi-bg">
 </main>

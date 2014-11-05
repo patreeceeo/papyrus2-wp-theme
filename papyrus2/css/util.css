@@ -1,3 +1,11 @@
 .u-pull-right {
   float: right !important;
 }
+
+.u-zi-bg {
+  z-index: 0 !important;
+}
+
+.u-zi-nav {
+  z-index: 5 !important;
+}
