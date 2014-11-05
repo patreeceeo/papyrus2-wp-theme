@@ -21,11 +21,17 @@
 <body <?php body_class(); ?>>
   <nav class="p-layout-top-nav u-zi-nav">
     <ul>
-      <li>
+      <li class="u-pull-left">
         <a href="/portfolio">Portfolio</a>
       </li>
+      <li class="u-pull-left">
+        <a href="/gps">GPS</a>
+      </li>
+      <li class="u-pull-left">
+        <a href="/services">Services</a>
+      </li>
       <li class="u-pull-right">
-        <a href="/portfolio">Blog</a>
+        <a href="/blog">Blog</a>
       </li>
     </ul> 
   </nav>
