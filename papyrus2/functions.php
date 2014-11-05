@@ -115,6 +115,10 @@ function papyrus2_scripts() {
 
 	wp_enqueue_script( 'papyrus2-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
 
+  wp_deregister_script('jquery');
+  wp_enqueue_script( 'jquery', get_template_directory_uri() . '/js/jquery-2.1.1.js');
+  wp_enqueue_script( 'papyrus2-smart-scrollable', get_template_directory_uri() . '/js/smart-scrollable.js');
+
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}

@@ -18,6 +18,20 @@
   bottom: 0;
 }
 
-.p-nav-top li {
+.p-nav-horiz {
+  /* font-size: 22px; */
+}
+.p-nav-horiz li {
   display: inline-block;
+  opacity: 0.5;
+}
+.p-nav-horiz li:hover {
+  opacity: 1;
+}
+.p-nav-horiz a {
+  border-bottom: 20px solid rgb(255, 255, 255);
+  color: white;
+}
+.p-nav-horiz a:hover {
+  border-bottom-color: rgb(221, 44, 74);
 }

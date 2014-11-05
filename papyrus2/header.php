@@ -19,19 +19,16 @@
 </head>
 
 <body <?php body_class(); ?>>
-  <nav class="p-layout-top-nav p-nav-top u-zi-nav">
-    <ul class="u-cf">
+  <nav class="p-layout-top-nav u-zi-nav">
+    <ul class="p-nav-horiz u-cf">
+      <li class="u-pull-right">
+        <a href="/blog">Blog</a>
+      </li>
       <li class="u-pull-left">
         <a href="/portfolio">Portfolio</a>
       </li>
       <li class="u-pull-left">
         <a href="/gps">GPS</a>
-      </li>
-      <li class="u-pull-left">
-        <a href="/services">Services</a>
-      </li>
-      <li class="u-pull-right">
-        <a href="/blog">Blog</a>
       </li>
     </ul> 
   </nav>
