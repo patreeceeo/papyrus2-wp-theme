@@ -13,8 +13,8 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <title>Papyrus</title>
 
-  <link rel="stylesheet" href="style.css">
-  <link rel="icon" href="favicon.gif">
+  <link rel="stylesheet" href="/style.css">
+  <link rel="icon" href="/favicon.gif">
 </head>
 <body class="p-bg-solid-dark">
   <nav class="p-layout-top-nav">
