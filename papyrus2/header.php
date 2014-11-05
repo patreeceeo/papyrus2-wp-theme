@@ -19,7 +19,7 @@
 </head>
 
 <body <?php body_class(); ?>>
-  <nav class="p-layout-top-nav u-zi-nav">
+  <nav class="p-layout-top-nav p-nav-top u-zi-nav">
     <ul>
       <li class="u-pull-left">
         <a href="/portfolio">Portfolio</a>

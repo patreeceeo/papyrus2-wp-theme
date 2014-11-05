@@ -17,3 +17,7 @@
   right: 0;
   bottom: 0;
 }
+
+.p-nav-top li {
+  display: inline-block;
+}
