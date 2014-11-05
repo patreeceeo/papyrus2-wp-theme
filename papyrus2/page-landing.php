@@ -4,19 +4,10 @@
  *
  * @package Papyrus2
  */
-?>
+get_header(); ?>
 
 
-<!DOCTYPE HTML>
-<html>
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <title>Papyrus</title>
-
-  <link rel="stylesheet" href="/style.css">
-  <link rel="icon" href="/favicon.gif">
-</head>
-<body class="p-bg-solid-dark">
+<main class="p-layout-full-screen p-bg-solid-dark">
   <nav class="p-layout-top-nav">
     <ul>
       <li>
@@ -27,5 +18,4 @@
       </li>
     </ul> 
   </nav>
-</body>
-</html>
+</main>
