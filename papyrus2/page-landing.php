@@ -7,14 +7,14 @@
 get_header(); ?>
 
 
-<main class="p-layout-full-screen p-bg-solid-dark u-zi-bg js-smart-scrollable">
+<main class="p-layout-full-screen p-bg-solid-dark u-zi-bg">
   <div class="p-welcome-sign">
-    <div class="p-welcome-sign-inner">
+    <div class="p-welcome-sign-inner js-smart-scrollable">
       <figure>
         <img src="<?php echo get_template_directory_uri() . "/assets/papyrus-logo.svg"; ?>">
       </figure><section>
         <h1>Patrick Canfield</h1>
-        <h3>Software Engineer &amp;&amp;<br>Designer for Freelance</h3>
+        <h3>Software Engineer &amp;&amp; Designer for Freelance</h3>
         <p>Need an expert for your next project? I delight in delivering <a href="/blog/tag/balanced">balanced</a> solutions, exceeding expectations and sharing my knowledge.</p>
       </section>
     </div>
