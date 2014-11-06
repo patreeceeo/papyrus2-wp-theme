@@ -3,11 +3,14 @@
   $(function () {
     function refresh () {
       $(".js-smart-scrollable").each(function () {
-        if($(window).innerHeight() >= $(this).outerHeight(true)) {
-          $(this).parent().css("overflow-y", "hidden");
-        } else {
-          $(this).parent().css("overflow-y", "scroll");
+        var value = "hidden";
+        if($(window).innerHeight() < $(this).outerHeight(true)) {
+          value = "scroll";
         }
+        if(window.screen.height < $(this).outerHeight(true)) {
+          value = "scroll";
+        }
+        $(this).parent().css("overflow-y", value);
       });
     }
 
