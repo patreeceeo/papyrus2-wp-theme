@@ -8,7 +8,7 @@ get_header(); ?>
 
 
 <main class="p-layout-full-screen p-bg-solid-dark u-zi-bg">
-  <div class="p-welcome-sign" style="overflow: scroll;">
+  <div class="p-welcome-sign">
     <div class="p-welcome-sign-inner">
       <figure>
         <img src="<?php echo get_template_directory_uri() . "/assets/papyrus-logo.svg"; ?>">

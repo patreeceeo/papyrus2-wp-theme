@@ -104,9 +104,10 @@
   .p-welcome-sign {
     min-width: 0;
     min-height: 0;
+    overflow-y: scroll;
   }
   .p-welcome-sign .p-welcome-sign-inner {
-    margin: 0;
+    margin: 87px 0 0 0;
     width: 100%;
     height: auto;
     position: static;
@@ -116,14 +117,18 @@
   .p-welcome-sign figure {
     width: 100%;
     height: auto;
-    float: none;
     text-align: center;
+  }
+
+  .p-welcome-sign figure {
+    position: absolute;
+    opacity: 0.1;
   }
 
   .p-welcome-sign img {
     border: 0;
     height: auto;
-    max-height: 350px;
+    max-height: 250px;
     padding: 0;
   }
 
