@@ -14,6 +14,7 @@
 <title><?php wp_title( '|', true, 'right' ); ?></title>
 <link rel="profile" href="http://gmpg.org/xfn/11">
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
+<link rel="icon" href="<?php echo get_template_directory_uri() . "/favicon.gif"; ?>">
 
 <?php wp_head(); ?>
 </head>
@@ -22,13 +23,13 @@
   <nav class="p-layout-top-nav u-zi-nav">
     <ul class="p-nav-horiz u-cf">
       <li class="u-pull-right">
-        <a href="/blog">Blog</a>
+        <a class="p-keyboard-key p-keyboard-key--mirror" href="/blog">Blog</a>
       </li>
       <li class="u-pull-left">
-        <a href="/portfolio">Portfolio</a>
+        <a class="p-keyboard-key" href="/portfolio">Portfolio</a>
       </li>
       <li class="u-pull-left">
-        <a href="/gps">GPS</a>
+        <a class="p-keyboard-key" href="/gps">GPS</a>
       </li>
     </ul> 
   </nav>

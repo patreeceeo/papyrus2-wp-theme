@@ -28,19 +28,40 @@
 .p-nav-horiz li:hover {
   opacity: 1;
 }
-.p-nav-horiz a {
+.p-keyboard-key {
+  font-style: italic;
   border-bottom: 17px solid rgb(255, 255, 255);
+  border-right: 17px solid transparent;
+  color: white;
+  padding: 5px;
+}
+.p-keyboard-key:hover {
+  border-bottom-color: rgb(221, 44, 74);
+  border-right-color: rgba(255, 255, 255, 0.1);
+}
+.p-keyboard-key:active {
+  position: relative;
+  top: 11px;
+  margin-left: 11px;
+  border-right-width: 6px;
+  border-bottom-width: 6px;
+}
+.p-keyboard-key.p-keyboard-key--mirror {
+  border-bottom: 17px solid rgb(255, 255, 255);
+  border-right: 0;
   border-left: 17px solid transparent;
   color: white;
   padding: 5px;
 }
-.p-nav-horiz a:hover {
+.p-keyboard-key.p-keyboard-key--mirror:hover {
   border-bottom-color: rgb(221, 44, 74);
   border-left-color: rgba(255, 255, 255, 0.1);
 }
-.p-nav-horiz a:active {
+.p-keyboard-key.p-keyboard-key--mirror:active {
   position: relative;
   top: 11px;
+  margin-right: 11px;
+  left: auto;
   border-left-width: 6px;
   border-bottom-width: 6px;
 }
