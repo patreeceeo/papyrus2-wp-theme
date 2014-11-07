@@ -43,43 +43,6 @@
     });
   };
 
-  var SlideView = function (options) {
-    options = options || {};
-
-    this.showTransition = new TransitionView(
-        options.showEl, 
-        function (el) { 
-          $(el)
-            .css("visibility", "visible")
-            .css("transform", "translateY(0)"); 
-        }
-    );
-    this.hideTransition = new TransitionView(
-        options.hideEl, 
-        function (el) { 
-          $(el)
-            .css("visibility", "visible")
-            .css("transform", "translateY("+screen.height+"px)"); 
-        }
-    );
-    this.resetTransition = new TransitionView(
-        options.hideEl, 
-        function (el) { 
-          $(el)
-            .css("visibility", "hidden")
-            .css("transform", "translateY(-"+screen.height+"px)"); 
-        }
-    );
-  };
-
-  SlideView.prototype.render = function (callback) {
-    var self = this;
-    this.hideTransition.render(function () {
-      self.resetTransition.render();
-      self.showTransition.render(callback);
-    });
-  };
-
   var View = function (options) {
     options = options || {};
     this.$slides = options.$slides;
@@ -88,23 +51,52 @@
   };
   View.prototype.render = function () {
     var self = this;
+    this._applyShowCSS(this._showEl());
     this.$slides.each(function () {
-      $(this).addClass("p-transition-slider-Y"); 
+      if(this !== self._showEl()) {
+        self._applyResetCSS(this);
+      }
+      $(this).css("transition", "transform 0.5s");
     });
-    // $(this.$slides.get(this.model.currentSlideIndex)).addClass("p-transition-slider-Y--enter");
     $(document).on("keypress", function () {
-      var slideView;
       if(!self.model.isSliding) {
         self.model.showNextSlide(); 
-        slideView = new SlideView({
-          showEl: self.$slides.get(self.model.currentSlideIndex),
-          hideEl: self.$slides.get(self.model.previousSlideIndex)
-        });
         self.model.isSliding = true;
-        slideView.render(function () {
+        self._renderTransitions(function () {
           self.model.isSliding = false;
         });
       }
+    });
+  };
+  View.prototype._showEl = function () {
+    return this.$slides[this.model.currentSlideIndex]; 
+  };
+  View.prototype._hideEl = function () {
+    return this.$slides[this.model.previousSlideIndex]; 
+  };
+  View.prototype._applyShowCSS = function (el) {
+    $(el)
+      .css("visibility", "visible")
+      .css("transform", "translateY(0)"); 
+  },
+  View.prototype._applyHideCSS = function (el) {
+    $(el)
+      .css("visibility", "visible")
+      .css("transform", "translateY("+screen.height+"px)"); 
+  };
+  View.prototype._applyResetCSS = function (el) {
+    $(el)
+      .css("visibility", "hidden")
+      .css("transform", "translateY(-"+screen.height+"px)"); 
+  };
+  View.prototype._renderTransitions = function (callback) {
+    var showTransition, hideTransition, resetTransition;
+    showTransition = new TransitionView(this._showEl(), this._applyShowCSS);
+    hideTransition = new TransitionView(this._hideEl(), this._applyHideCSS);
+    resetTransition = new TransitionView(this._hideEl(), this._applyResetCSS);
+    hideTransition.render(function () {
+      resetTransition.render();
+      showTransition.render(callback);
     });
   };
 
