@@ -2,7 +2,7 @@
   "use strict";
 
   var Model = function () {
-    this.currentSlideIndex = 0;
+    this.currentSlideIndex = -1;
     this.slideCount = 0;
     this.isSliding = false;
   };
@@ -22,7 +22,7 @@
 
 
   var TransitionView = function (el, beforeCallback) {
-    this.$el = $(el || "div");
+    this.$el = $(el);
     this.beforeCallback = beforeCallback;
   };
   TransitionView.prototype._getEndEventName = function () {
@@ -43,11 +43,15 @@
   };
   TransitionView.prototype.render = function (callback) {
     var self = this;
-    this.beforeCallback(this.$el[0]);
-    this.$el.on(this._getEndEventName(), function () {
-      self.$el.unbind(self._getEndEventName()); 
+    if(this.$el[0] != null) {
+      this.beforeCallback(this.$el[0]);
+      this.$el.on(this._getEndEventName(), function () {
+        self.$el.unbind(self._getEndEventName()); 
+        callback && callback.call(this);
+      });
+    } else {
       callback && callback.call(this);
-    });
+    }
   };
 
   var View = function (options) {
@@ -169,11 +173,8 @@
   };
   View.prototype.render = function () {
     var self = this;
-    this._applyShowCSS(this._showEl());
     this.$slides.each(function () {
-      if(this !== self._showEl()) {
-        self._applyResetCSS(this);
-      }
+      self._applyResetCSS(this);
       $(this).css({
         "-webkit-transition": "-webkit-transform 0.5s",
         "-moz-transition": "transform 0.5s",
@@ -181,7 +182,8 @@
         "transition": "transform 0.5s"
       });
     });
-    $(document).on("keydown", function (e) {
+
+    $(document).on("keyup", function (e) {
       var keyCode, keyName;
       keyCode = e.keyCode || e.which;
       if(!self.model.isSliding) {
@@ -225,10 +227,11 @@
     showTransition = new TransitionView(this._showEl(), transitionInfo.applyShowCSS);
     hideTransition = new TransitionView(this._hideEl(), transitionInfo.applyHideCSS);
     resetTransition = new TransitionView(this._hideEl(), transitionInfo.applyResetCSS);
-    prepTransition.render();
-    hideTransition.render(function () {
-      resetTransition.render();
-      showTransition.render(callback);
+    prepTransition.render(function () {
+      hideTransition.render(function () {
+        resetTransition.render();
+        showTransition.render(callback);
+      });
     });
   };
 
