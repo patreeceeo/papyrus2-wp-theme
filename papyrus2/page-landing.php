@@ -13,14 +13,15 @@ get_header(); ?>
       <figure>
         <img src="<?php echo get_template_directory_uri() . "/assets/papyrus-logo.svg"; ?>">
         <div data-papyrus-plugin="slider">
-          <div data-papyrus-slider-element="slide" class="p-welcome-sign-slide">
-            <h1>Hello!</h1>
+          <div data-papyrus-slider-element="slide" class="p-welcome-sign-slide u-zi-animation" style="background-image:url('http://papyrusoft.com/wp-content/uploads/2014/10/Synack-id-verify-1-large.gif');">
           </div>
-          <div data-papyrus-slider-element="slide" class="p-welcome-sign-slide">
-            <h1>Okay!</h1>
+          <div data-papyrus-slider-element="slide" class="p-welcome-sign-slide u-zi-animation" style="background-image:url('http://papyrusoft.com/wp-content/uploads/2014/10/Synack-id-verify-2-large.gif');">
           </div>
-          <div data-papyrus-slider-element="slide" class="p-welcome-sign-slide">
-            <h1>Bye!</h1>
+          <div data-papyrus-slider-element="slide" class="p-welcome-sign-slide u-zi-animation" style="background-image:url('http://papyrusoft.com/wp-content/uploads/2014/10/Sophie-1-large.gif');">
+          </div>
+          <div data-papyrus-slider-element="slide" class="p-welcome-sign-slide u-zi-animation" style="background-image:url('http://papyrusoft.com/wp-content/uploads/2014/10/Honeycomb.png');">
+          </div>
+          <div data-papyrus-slider-element="slide" class="p-welcome-sign-slide u-zi-animation" style="background-image:url('http://papyrusoft.com/wp-content/uploads/2014/10/EventRay-screenshot.png');">
           </div>
         </div>
       </figure><section>
