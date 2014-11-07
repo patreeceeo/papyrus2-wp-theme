@@ -124,7 +124,7 @@
     })(),
     "left": (function () {
       var halfWay = function (el) {
-        return (screen.width + $(el).width())/2;
+        return (screen.width/2) + $(el).width();
       };
       return {
         applyShowCSS: View.prototype._applyShowCSS,
@@ -148,7 +148,7 @@
     })(),
     "right": (function () {
       var halfWay = function (el) {
-        return (screen.width + $(el).width())/2;
+        return (screen.width/2) + $(el).width();
       };
       return {
         applyShowCSS: View.prototype._applyShowCSS,
