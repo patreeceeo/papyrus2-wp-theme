@@ -185,26 +185,27 @@
       var keyCode, keyName;
       keyCode = e.keyCode || e.which;
       if(!self.model.isSliding) {
-        self.model.isSliding = true;
         switch(keyCode) {
           case 37:
             keyName = "left";
-            self.model.showPrevSlide(); 
             break;
           case 38:
             keyName = "up";
-            self.model.showPrevSlide(); 
             break;
           case 39:
             keyName = "right";
-            self.model.showNextSlide(); 
             break;
           case 40:
             keyName = "down";
-            self.model.showNextSlide(); 
             break;
         }
         if(self.transitionMap[keyName] != null) {
+          self.model.isSliding = true;
+          if(keyName == "left" || keyName == "up") {
+            self.model.showPrevSlide();
+          } else {
+            self.model.showNextSlide();
+          }
           self._renderTransitions(self.transitionMap[keyName], function () {
             self.model.isSliding = false;
           });
