@@ -94,6 +94,7 @@
   height: 350px;
   width: 350px;
   float: left;
+  position: relative;
 }
 .p-welcome-sign p {
   position: absolute;
@@ -135,4 +136,25 @@
   .p-welcome-sign p {
     position: static;
   }
+}
+
+.p-welcome-sign-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.p-transition-slider-Y {
+  transition: transform 0.5s;
+}
+.p-transition-slider-Y.p-transition-slider-Y--enter {
+}
+.p-transition-slider-Y.p-transition-slider-Y--exit {
+}
+.p-transition-slider-Y.p-transition-slider-Y--reset {
+  visibility: hidden;
 }
