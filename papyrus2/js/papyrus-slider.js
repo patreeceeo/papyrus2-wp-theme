@@ -76,18 +76,24 @@
   };
   View.prototype._applyShowCSS = function (el) {
     $(el)
-      .css("visibility", "visible")
-      .css("transform", "translateY(0)"); 
+      .css({
+        "visibility": "visible",
+        "transform": "translateY(0)"
+      });
   },
   View.prototype._applyHideCSS = function (el) {
     $(el)
-      .css("visibility", "visible")
-      .css("transform", "translateY("+screen.height+"px)"); 
+      .css({
+        "visibility": "visible",
+        "transform": "translateY("+((screen.height + $(el).height())/2) + "px)"
+      });
   };
   View.prototype._applyResetCSS = function (el) {
     $(el)
-      .css("visibility", "hidden")
-      .css("transform", "translateY(-"+screen.height+"px)"); 
+      .css({
+          "visibility": "hidden",
+          "transform": "translateY("+(-(screen.height + $(el).height())/2) + "px)"
+      });
   };
   View.prototype._renderTransitions = function (callback) {
     var showTransition, hideTransition, resetTransition;
