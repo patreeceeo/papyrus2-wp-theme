@@ -56,7 +56,12 @@
       if(this !== self._showEl()) {
         self._applyResetCSS(this);
       }
-      $(this).css("transition", "transform 0.5s");
+      $(this).css({
+        "-webkit-transition": "-webkit-transform 0.5s",
+        "-moz-transition": "transform 0.5s",
+        "-o-transition": "transform 0.5s",
+        "transition": "transform 0.5s"
+      });
     });
     $(document).on("keypress", function () {
       if(!self.model.isSliding) {
@@ -74,6 +79,9 @@
   View.prototype._hideEl = function () {
     return this.$slides[this.model.previousSlideIndex]; 
   };
+  var halfWay = function (el) {
+    return (screen.height + $(el).height())/2;
+  };
   View.prototype._applyShowCSS = function (el) {
     $(el)
       .css({
@@ -85,14 +93,16 @@
     $(el)
       .css({
         "visibility": "visible",
-        "transform": "translateY("+((screen.height + $(el).height())/2) + "px)"
+        "-webkit-transform": "webkit-translateY("+halfWay(el)+"px)",
+        "transform": "translateY("+halfWay(el)+"px)"
       });
   };
   View.prototype._applyResetCSS = function (el) {
     $(el)
       .css({
           "visibility": "hidden",
-          "transform": "translateY("+(-(screen.height + $(el).height())/2) + "px)"
+          "-webkit-transform": "-webkit-translateY(-"+halfWay(el)+"px)",
+          "transform": "translateY(-"+halfWay(el)+"px)"
       });
   };
   View.prototype._renderTransitions = function (callback) {
