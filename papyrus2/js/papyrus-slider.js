@@ -21,17 +21,30 @@
   };
 
 
-  var TransitionView = function (el, beforeCallback, duration) {
+  var TransitionView = function (el, transition) {
     this.$el = $(el);
-    this.beforeCallback = beforeCallback;
-    this.duration = duration || 500;
+    this.duration = transition.duration;
+    var maxDistance = Math.max(screen.width, screen.height);
+    this.translateX = (transition.translateX * maxDistance) + "px";
+    this.translateY = (transition.translateY * maxDistance) + "px";
+    this.visible = transition.visible || true;
   };
   TransitionView.prototype.render = function (callback) {
     var duration = this.duration;
     if(this.$el[0] == null) {
       duration = 0;
     }
-    this.beforeCallback(this.$el[0]);
+    this.$el.css({
+      "-webkit-transition": "-webkit-transform "+this.duration+"ms",
+      "-moz-transition": "transform "+this.duration+"ms",
+      "-o-transition": "transform "+this.duration+"ms",
+      "transition": "transform "+this.duration+"ms"
+    });
+    this.$el.css({
+      "-webkit-transform": "-webkit-translate("+this.translateX+","+this.translateY+")",
+      "transform": "translate("+this.translateX+","+this.translateY+")",
+      "visibility": this.visible ? "visible" : "hidden"
+    });
     setTimeout(callback, this.duration);
   };
 
@@ -41,130 +54,109 @@
     this.model = options.model;
     this.model.slideCount = this.$slides.length;
   };
-  View.prototype._applyShowCSS = function (el) {
-    $(el)
-      .css({
-        "visibility": "visible",
-        "transform": "translateY(0)"
-      });
-  };
-  View.prototype._applyResetCSS = function (el) {
-    $(el)
-      .css({
-        "visibility": "hidden"
-      });
-  };
+
   View.prototype.transitionMap = {
-    "down": (function () {
-      var halfWay = function (el) {
-        return (screen.height + $(el).height())/2;
-      };
-      return {
-        applyShowCSS: View.prototype._applyShowCSS,
-        applyHideCSS: function (el) {
-          $(el)
-            .css({
-              "visibility": "visible",
-              "-webkit-transform": "webkit-translateY("+halfWay(el)+"px)",
-              "transform": "translateY("+halfWay(el)+"px)"
-            });
-        },
-        applyResetCSS: function (el) {
-          $(el)
-            .css({
-                "visibility": "hidden",
-                "-webkit-transform": "-webkit-translateY(-"+halfWay(el)+"px)",
-                "transform": "translateY(-"+halfWay(el)+"px)"
-            });
-        }
-      };
-    })(),
-    "up": (function () {
-      var halfWay = function (el) {
-        return (screen.height + $(el).height())/2;
-      };
-      return {
-        applyShowCSS: View.prototype._applyShowCSS,
-        applyHideCSS: function (el) {
-          $(el)
-            .css({
-              "visibility": "visible",
-              "-webkit-transform": "webkit-translateY(-"+halfWay(el)+"px)",
-              "transform": "translateY(-"+halfWay(el)+"px)"
-            });
-        },
-        applyResetCSS: function (el) {
-          $(el)
-            .css({
-                "visibility": "hidden",
-                "-webkit-transform": "-webkit-translateY("+halfWay(el)+"px)",
-                "transform": "translateY("+halfWay(el)+"px)"
-            });
-        }
-      };
-    })(),
-    "left": (function () {
-      var halfWay = function (el) {
-        return (screen.width/2) + $(el).width();
-      };
-      return {
-        applyShowCSS: View.prototype._applyShowCSS,
-        applyHideCSS: function (el) {
-          $(el)
-            .css({
-              "visibility": "visible",
-              "-webkit-transform": "webkit-translateX(-"+halfWay(el)+"px)",
-              "transform": "translateX(-"+halfWay(el)+"px)"
-            });
-        },
-        applyResetCSS: function (el) {
-          $(el)
-            .css({
-                "visibility": "hidden",
-                "-webkit-transform": "-webkit-translateX("+halfWay(el)+"px)",
-                "transform": "translateX("+halfWay(el)+"px)"
-            });
-        }
-      };
-    })(),
-    "right": (function () {
-      var halfWay = function (el) {
-        return (screen.width/2) + $(el).width();
-      };
-      return {
-        applyShowCSS: View.prototype._applyShowCSS,
-        applyHideCSS: function (el) {
-          $(el)
-            .css({
-              "visibility": "visible",
-              "-webkit-transform": "webkit-translateX("+halfWay(el)+"px)",
-              "transform": "translateX("+halfWay(el)+"px)"
-            });
-        },
-        applyResetCSS: function (el) {
-          $(el)
-            .css({
-                "visibility": "hidden",
-                "-webkit-transform": "-webkit-translateX(-"+halfWay(el)+"px)",
-                "transform": "translateX(-"+halfWay(el)+"px)"
-            });
-        }
-      };
-    })()
+    "down": {
+      show: {
+        duration: 500,
+        translateY: 0,
+        translateX: 0
+      },
+      hide: {
+        duration: 500,
+        translateY: 1,
+        translateX: 0
+      },
+      reset: {
+        duration: 0,
+        translateY: -1,
+        translateX: 0,
+        visible: false
+      }
+    },
+    "up": {
+      show: {
+        duration: 500,
+        translateY: 0,
+        translateX: 0
+      },
+      hide: {
+        duration: 500,
+        translateY: -1,
+        translateX: 0
+      },
+      reset: {
+        duration: 0,
+        translateY: 1,
+        translateX: 0,
+        visible: false
+      }
+    },
+    "right": {
+      show: {
+        duration: 500,
+        translateY: 0,
+        translateX: 0
+      },
+      hide: {
+        duration: 500,
+        translateY: 0,
+        translateX: 1
+      },
+      reset: {
+        duration: 0,
+        translateY: 0,
+        translateX: -1,
+        visible: false
+      }
+    },
+    "left": {
+      show: {
+        duration: 500,
+        translateY: 0,
+        translateX: 0
+      },
+      hide: {
+        duration: 500,
+        translateY: 0,
+        translateX: -1
+      },
+      reset: {
+        duration: 0,
+        translateY: 0,
+        translateX: 1,
+        visible: false
+      }
+    }
   };
   View.prototype.render = function () {
-    var self = this;
+    var slideInterval, self = this;
     this.$slides.each(function () {
-      self._applyResetCSS(this);
-      $(this).css({
-        "-webkit-transition": "-webkit-transform 0.5s",
-        "-moz-transition": "transform 0.5s",
-        "-o-transition": "transform 0.5s",
-        "transition": "transform 0.5s"
+      var prepTransition = new TransitionView(this, {
+        duration: 0,
+        translateY: -50,
+        translateX: 0,
+        visible: false
       });
+      prepTransition.render();
     });
 
-    /* global console */ 
+    slideInterval = setInterval(function () {
+      var randomName;
+      if(!self.model.isSliding) {
+        randomName = ["left", "up", "right", "down"][Math.floor(Math.random() * 4)];
+        if(randomName == "left" || randomName == "up") {
+          self.model.showPrevSlide();
+        } else {
+          self.model.showNextSlide();
+        }
+        self.model.isSliding = true;
+        self._renderTransitions(self.transitionMap[randomName], function () {
+          self.model.isSliding = false;
+        });
+      }
+    }, 4000);
+
     $(document).on("keyup", function (e) {
       var keyCode, keyName;
       keyCode = e.keyCode || e.which;
@@ -184,8 +176,9 @@
             break;
         }
         if(self.transitionMap[keyName] != null) {
+          // Okay, you want to be in control of the sliding
+          clearInterval(slideInterval);
           self.model.isSliding = true;
-          console.count("sliding");
           if(keyName == "left" || keyName == "up") {
             self.model.showPrevSlide();
           } else {
@@ -193,21 +186,11 @@
           }
           self._renderTransitions(self.transitionMap[keyName], function () {
             self.model.isSliding = false;
-            console.count("not sliding");
           });
         }
       }
     });
 
-    // setInterval(function () {
-    //   var randomName;
-    //   randomName = ["left", "up", "right", "down"][Math.floor(Math.random() * 4)];
-    //   self.model.showNextSlide();
-    //   self.model.isSliding = true;
-    //   self._renderTransitions(self.transitionMap[randomName], function () {
-    //     self.model.isSliding = false;
-    //   });
-    // }, 4000);
   };
   View.prototype._showEl = function () {
     return this.$slides[this.model.currentSlideIndex]; 
@@ -217,10 +200,10 @@
   };
   View.prototype._renderTransitions = function (transitionInfo, callback) {
     var prepTransition, showTransition, hideTransition, resetTransition;
-    prepTransition = new TransitionView(this._showEl(), transitionInfo.applyResetCSS);
-    showTransition = new TransitionView(this._showEl(), transitionInfo.applyShowCSS);
-    hideTransition = new TransitionView(this._hideEl(), transitionInfo.applyHideCSS);
-    resetTransition = new TransitionView(this._hideEl(), transitionInfo.applyResetCSS);
+    prepTransition = new TransitionView(this._showEl(), transitionInfo.reset);
+    showTransition = new TransitionView(this._showEl(), transitionInfo.show);
+    hideTransition = new TransitionView(this._hideEl(), transitionInfo.hide);
+    resetTransition = new TransitionView(this._hideEl(), transitionInfo.reset);
     prepTransition.render(function () {
       hideTransition.render(function () {
         resetTransition.render(function () {
