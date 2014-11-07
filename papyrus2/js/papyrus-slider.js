@@ -13,6 +13,13 @@
     this.currentSlideIndex = this.currentSlideIndex % this.slideCount;
   };
 
+  Model.prototype.showPrevSlide = function () {
+    this.previousSlideIndex = this.currentSlideIndex;
+    this.currentSlideIndex--; 
+    this.currentSlideIndex = this.currentSlideIndex > -1 ? 
+      this.currentSlideIndex : this.slideCount - 1;
+  };
+
 
   var TransitionView = function (el, beforeCallback) {
     this.$el = $(el || "div");
@@ -49,6 +56,117 @@
     this.model = options.model;
     this.model.slideCount = this.$slides.length;
   };
+  View.prototype._applyShowCSS = function (el) {
+    $(el)
+      .css({
+        "visibility": "visible",
+        "transform": "translateY(0)"
+      });
+  };
+  View.prototype._applyResetCSS = function (el) {
+    $(el)
+      .css({
+        "visibility": "hidden"
+      });
+  };
+  View.prototype.transitionMap = {
+    "down": (function () {
+      var halfWay = function (el) {
+        return (screen.height + $(el).height())/2;
+      };
+      return {
+        applyShowCSS: View.prototype._applyShowCSS,
+        applyHideCSS: function (el) {
+          $(el)
+            .css({
+              "visibility": "visible",
+              "-webkit-transform": "webkit-translateY("+halfWay(el)+"px)",
+              "transform": "translateY("+halfWay(el)+"px)"
+            });
+        },
+        applyResetCSS: function (el) {
+          $(el)
+            .css({
+                "visibility": "hidden",
+                "-webkit-transform": "-webkit-translateY(-"+halfWay(el)+"px)",
+                "transform": "translateY(-"+halfWay(el)+"px)"
+            });
+        }
+      };
+    })(),
+    "up": (function () {
+      var halfWay = function (el) {
+        return (screen.height + $(el).height())/2;
+      };
+      return {
+        applyShowCSS: View.prototype._applyShowCSS,
+        applyHideCSS: function (el) {
+          $(el)
+            .css({
+              "visibility": "visible",
+              "-webkit-transform": "webkit-translateY(-"+halfWay(el)+"px)",
+              "transform": "translateY(-"+halfWay(el)+"px)"
+            });
+        },
+        applyResetCSS: function (el) {
+          $(el)
+            .css({
+                "visibility": "hidden",
+                "-webkit-transform": "-webkit-translateY("+halfWay(el)+"px)",
+                "transform": "translateY("+halfWay(el)+"px)"
+            });
+        }
+      };
+    })(),
+    "left": (function () {
+      var halfWay = function (el) {
+        return (screen.width + $(el).width())/2;
+      };
+      return {
+        applyShowCSS: View.prototype._applyShowCSS,
+        applyHideCSS: function (el) {
+          $(el)
+            .css({
+              "visibility": "visible",
+              "-webkit-transform": "webkit-translateX(-"+halfWay(el)+"px)",
+              "transform": "translateX(-"+halfWay(el)+"px)"
+            });
+        },
+        applyResetCSS: function (el) {
+          $(el)
+            .css({
+                "visibility": "hidden",
+                "-webkit-transform": "-webkit-translateX("+halfWay(el)+"px)",
+                "transform": "translateX("+halfWay(el)+"px)"
+            });
+        }
+      };
+    })(),
+    "right": (function () {
+      var halfWay = function (el) {
+        return (screen.width + $(el).width())/2;
+      };
+      return {
+        applyShowCSS: View.prototype._applyShowCSS,
+        applyHideCSS: function (el) {
+          $(el)
+            .css({
+              "visibility": "visible",
+              "-webkit-transform": "webkit-translateX("+halfWay(el)+"px)",
+              "transform": "translateX("+halfWay(el)+"px)"
+            });
+        },
+        applyResetCSS: function (el) {
+          $(el)
+            .css({
+                "visibility": "hidden",
+                "-webkit-transform": "-webkit-translateX(-"+halfWay(el)+"px)",
+                "transform": "translateX(-"+halfWay(el)+"px)"
+            });
+        }
+      };
+    })()
+  };
   View.prototype.render = function () {
     var self = this;
     this._applyShowCSS(this._showEl());
@@ -63,13 +181,34 @@
         "transition": "transform 0.5s"
       });
     });
-    $(document).on("keypress", function () {
+    $(document).on("keydown", function (e) {
+      var keyCode, keyName;
+      keyCode = e.keyCode || e.which;
       if(!self.model.isSliding) {
-        self.model.showNextSlide(); 
         self.model.isSliding = true;
-        self._renderTransitions(function () {
-          self.model.isSliding = false;
-        });
+        switch(keyCode) {
+          case 37:
+            keyName = "left";
+            self.model.showPrevSlide(); 
+            break;
+          case 38:
+            keyName = "up";
+            self.model.showPrevSlide(); 
+            break;
+          case 39:
+            keyName = "right";
+            self.model.showNextSlide(); 
+            break;
+          case 40:
+            keyName = "down";
+            self.model.showNextSlide(); 
+            break;
+        }
+        if(self.transitionMap[keyName] != null) {
+          self._renderTransitions(self.transitionMap[keyName], function () {
+            self.model.isSliding = false;
+          });
+        }
       }
     });
   };
@@ -79,37 +218,13 @@
   View.prototype._hideEl = function () {
     return this.$slides[this.model.previousSlideIndex]; 
   };
-  var halfWay = function (el) {
-    return (screen.height + $(el).height())/2;
-  };
-  View.prototype._applyShowCSS = function (el) {
-    $(el)
-      .css({
-        "visibility": "visible",
-        "transform": "translateY(0)"
-      });
-  },
-  View.prototype._applyHideCSS = function (el) {
-    $(el)
-      .css({
-        "visibility": "visible",
-        "-webkit-transform": "webkit-translateY("+halfWay(el)+"px)",
-        "transform": "translateY("+halfWay(el)+"px)"
-      });
-  };
-  View.prototype._applyResetCSS = function (el) {
-    $(el)
-      .css({
-          "visibility": "hidden",
-          "-webkit-transform": "-webkit-translateY(-"+halfWay(el)+"px)",
-          "transform": "translateY(-"+halfWay(el)+"px)"
-      });
-  };
-  View.prototype._renderTransitions = function (callback) {
-    var showTransition, hideTransition, resetTransition;
-    showTransition = new TransitionView(this._showEl(), this._applyShowCSS);
-    hideTransition = new TransitionView(this._hideEl(), this._applyHideCSS);
-    resetTransition = new TransitionView(this._hideEl(), this._applyResetCSS);
+  View.prototype._renderTransitions = function (transitionInfo, callback) {
+    var prepTransition, showTransition, hideTransition, resetTransition;
+    prepTransition = new TransitionView(this._showEl(), transitionInfo.applyResetCSS);
+    showTransition = new TransitionView(this._showEl(), transitionInfo.applyShowCSS);
+    hideTransition = new TransitionView(this._hideEl(), transitionInfo.applyHideCSS);
+    resetTransition = new TransitionView(this._hideEl(), transitionInfo.applyResetCSS);
+    prepTransition.render();
     hideTransition.render(function () {
       resetTransition.render();
       showTransition.render(callback);

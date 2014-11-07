@@ -17,6 +17,9 @@ get_header(); ?>
             <h1>Hello!</h1>
           </div>
           <div data-papyrus-slider-element="slide" class="p-welcome-sign-slide">
+            <h1>Okay!</h1>
+          </div>
+          <div data-papyrus-slider-element="slide" class="p-welcome-sign-slide">
             <h1>Bye!</h1>
           </div>
         </div>
