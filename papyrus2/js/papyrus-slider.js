@@ -21,37 +21,18 @@
   };
 
 
-  var TransitionView = function (el, beforeCallback) {
+  var TransitionView = function (el, beforeCallback, duration) {
     this.$el = $(el);
     this.beforeCallback = beforeCallback;
-  };
-  TransitionView.prototype._getEndEventName = function () {
-    var t;
-    var el = document.createElement("fakeelement");
-    var transitions = {
-      "transition":"transitionend",
-      "OTransition":"oTransitionEnd",
-      "MozTransition":"transitionend",
-      "WebkitTransition":"webkitTransitionEnd"
-    };
-
-    for(t in transitions) {
-      if( el.style[t] !== undefined ){
-        return transitions[t];
-      }
-    }
+    this.duration = duration || 500;
   };
   TransitionView.prototype.render = function (callback) {
-    var self = this;
-    if(this.$el[0] != null) {
-      this.beforeCallback(this.$el[0]);
-      this.$el.on(this._getEndEventName(), function () {
-        self.$el.unbind(self._getEndEventName()); 
-        callback && callback.call(this);
-      });
-    } else {
-      callback && callback.call(this);
+    var duration = this.duration;
+    if(this.$el[0] == null) {
+      duration = 0;
     }
+    this.beforeCallback(this.$el[0]);
+    setTimeout(callback, this.duration);
   };
 
   var View = function (options) {
@@ -183,6 +164,7 @@
       });
     });
 
+    /* global console */ 
     $(document).on("keyup", function (e) {
       var keyCode, keyName;
       keyCode = e.keyCode || e.which;
@@ -203,6 +185,7 @@
         }
         if(self.transitionMap[keyName] != null) {
           self.model.isSliding = true;
+          console.count("sliding");
           if(keyName == "left" || keyName == "up") {
             self.model.showPrevSlide();
           } else {
@@ -210,10 +193,21 @@
           }
           self._renderTransitions(self.transitionMap[keyName], function () {
             self.model.isSliding = false;
+            console.count("not sliding");
           });
         }
       }
     });
+
+    // setInterval(function () {
+    //   var randomName;
+    //   randomName = ["left", "up", "right", "down"][Math.floor(Math.random() * 4)];
+    //   self.model.showNextSlide();
+    //   self.model.isSliding = true;
+    //   self._renderTransitions(self.transitionMap[randomName], function () {
+    //     self.model.isSliding = false;
+    //   });
+    // }, 4000);
   };
   View.prototype._showEl = function () {
     return this.$slides[this.model.currentSlideIndex]; 
@@ -229,8 +223,9 @@
     resetTransition = new TransitionView(this._hideEl(), transitionInfo.applyResetCSS);
     prepTransition.render(function () {
       hideTransition.render(function () {
-        resetTransition.render();
-        showTransition.render(callback);
+        resetTransition.render(function () {
+          showTransition.render(callback);
+        });
       });
     });
   };
