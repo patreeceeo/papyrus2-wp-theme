@@ -110,6 +110,10 @@
   background-size: cover;
   background-position: 50%;
   background-repeat: no-repeat;
+  opacity: 0.9;
+}
+.p-welcome-sign .p-welcome-sign-slide:hover {
+  opacity: 1;
 }
 
 @media (max-width: 700px) {
