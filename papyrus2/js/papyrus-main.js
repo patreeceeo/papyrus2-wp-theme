@@ -17,9 +17,7 @@ $(function () {
       parentWidth = Math.min($(this).parent().innerWidth() - parseInt($(this).parent().css("padding")), screen.width);
       if(parentWidth !== $(this).data("fit-text-parent-former-width")) {
         $(this).css({
-          "position": "absolute",
-          "-webkit-transition": "font-size 500ms",
-          "transition": "font-size 500ms"
+          "position": "absolute"
         });
         ratio = parentWidth / $(this).outerWidth(true);
         newFontSize = Math.floor(parseInt($(this).css("font-size")) * ratio * 0.95);

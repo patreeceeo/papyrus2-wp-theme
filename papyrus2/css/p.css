@@ -149,6 +149,17 @@ ul.p-nav-vert li a {
   opacity: 1;
 }
 
+.p-call-to-action {
+  text-align: center;
+  opacity: 0.75;
+  font-size: 33px;
+  -webkit-transition: opacity 500ms;
+  transition: opacity 500ms;
+}
+.p-call-to-action:hover {
+  opacity: 1;
+}
+
 @media (max-width: 700px) {
   .p-welcome-sign {
     min-width: 0;
