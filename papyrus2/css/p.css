@@ -119,6 +119,7 @@ ul.p-nav-vert li a {
   height: inherit;
   border-right: 2px solid rgb(255, 255, 255);
   opacity: 0.5;
+  max-width: 100%;
 }
 .p-welcome-sign figure,
 .p-welcome-sign section {
@@ -128,9 +129,22 @@ ul.p-nav-vert li a {
   float: left;
   position: relative;
 }
-.p-welcome-sign p {
-  /* position: absolute; */
-  /* bottom: 0; */
+.p-welcome-sign figure {
+  border-right: 2px solid rgba(255, 255, 255, 0.5);
+}
+.p-welcome-sign figure::after {
+  content: "";
+  background-image: url("http://papyrusoft.com/wp-content/themes/papyrus2/assets/papyrus-logo.svg");
+  opacity: 0.2 !important;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-size: contain;
+  top: 15px;
+  left: 15px;
+  bottom: 15px;
+  right: 15px;
+  position: absolute;
+  z-index: -1;   
 }
 .p-welcome-sign .p-welcome-sign-slide {
   position: absolute;
@@ -161,10 +175,20 @@ ul.p-nav-vert li a {
 }
 
 @media (max-width: 700px) {
+  html {
+    overflow: scroll !important;
+    height: 100%;
+    width: 100%;
+  }
+
+  body, * {
+    overflow: visible !important;
+    opacity: 1 !important;
+  }
+
   .p-welcome-sign {
     min-width: 0;
     min-height: 0;
-    overflow: scroll;
   }
   .p-welcome-sign .p-welcome-sign-inner {
     /* The margin is to allow for scrolling when the nav
@@ -184,8 +208,24 @@ ul.p-nav-vert li a {
   }
 
   .p-welcome-sign figure {
+    /* position: absolute; */
+    display: none;
+  }
+  .p-welcome-sign section:after {
+    /* same background trick as for the figure one
+     * desktop */
+    content: "";
+    background-image: url("http://papyrusoft.com/wp-content/themes/papyrus2/assets/papyrus-logo.svg");
+    opacity: 0.2 !important;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-size: contain;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
     position: absolute;
-    opacity: 0.1;
+    z-index: -1;   
   }
 
   .p-welcome-sign img {

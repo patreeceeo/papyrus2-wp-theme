@@ -12,7 +12,6 @@ get_header(); ?>
     <div class="p-welcome-sign-inner">
       <div class="u-cf">
         <figure>
-          <img src="<?php echo get_template_directory_uri() . "/assets/papyrus-logo.svg"; ?>">
           <div data-papyrus-plugin="slider">
             <!-- Don't show Dozmia until launch -->
             <!--a data-papyrus-slider-element="slide" class="p-welcome-sign-slide u-zi-animation" style="background-image:url('http://papyrusoft.com/wp-content/uploads/2014/11/Dozmia-home-medium.gif');" href="/portfolio">
