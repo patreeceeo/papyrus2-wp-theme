@@ -34,7 +34,7 @@ get_header(); ?>
         <p>Need an expert for your next project? I delight in delivering <a href="/blog/tag/balanced">balanced</a> solutions, exceeding expectations and sharing my knowledge.</p>
       </section>
       <nav class="u-only-mobile u-zi-nav">
-        <ul class="p-menu ">
+        <ul class="p-menu">
           <li>
             <a class="p-bg-solid-dark" href="/blog">Blog</a>
           </li>

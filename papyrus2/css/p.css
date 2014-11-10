@@ -34,13 +34,22 @@
 }
 
 
-ul.p-menu a {
-  display: block;
-  padding: 5.5px 15px;
-  opacity: 0.66;
+ul.p-menu {
+  margin: 33px 0;
 }
-ul.p-menu a:hover {
-  opacity: 1;
+ul.p-menu li {
+  display: block;
+  padding: 16.5px 0;
+  opacity: 0.66;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  margin: 0 15px;
+  text-align: center;
+  font-size: 28px;
+  line-height: 28px;
+}
+ul.p-menu li:last-child,
+ul.p-menu li a {
+  border: 0;
 }
 
 .p-nav-horiz li {
