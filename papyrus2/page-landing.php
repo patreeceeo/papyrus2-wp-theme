@@ -13,6 +13,7 @@ get_header(); ?>
       <figure>
         <img src="<?php echo get_template_directory_uri() . "/assets/papyrus-logo.svg"; ?>">
         <div data-papyrus-plugin="slider">
+          <!-- Don't show Dozmia until launch -->
           <!--a data-papyrus-slider-element="slide" class="p-welcome-sign-slide u-zi-animation" style="background-image:url('http://papyrusoft.com/wp-content/uploads/2014/11/Dozmia-home-medium.gif');" href="/portfolio">
           </a>
           <a data-papyrus-slider-element="slide" class="p-welcome-sign-slide u-zi-animation" style="background-image:url('http://papyrusoft.com/wp-content/uploads/2014/11/Dozmia-playlist-medium.gif');" href="/portfolio">
@@ -35,7 +36,7 @@ get_header(); ?>
         <p class="u-only-desktop">Figure left: examples of past work. Use the arrow keys to control which thumbnail is shown. Click for details!</p>
       </section>
       <nav class="u-only-mobile u-zi-nav">
-        <ul class="p-menu">
+        <ul class="p-nav-vert">
           <li>
             <a class="p-bg-solid-dark" href="/blog">Blog</a>
           </li>

@@ -34,10 +34,10 @@
 }
 
 
-ul.p-menu {
+ul.p-nav-vert {
   margin: 33px 0;
 }
-ul.p-menu li {
+ul.p-nav-vert li {
   display: block;
   padding: 16.5px 0;
   opacity: 0.66;
@@ -47,15 +47,14 @@ ul.p-menu li {
   font-size: 28px;
   line-height: 28px;
 }
-ul.p-menu li:last-child,
-ul.p-menu li a {
+ul.p-nav-vert li:last-child,
+ul.p-nav-vert li a {
   border: 0;
 }
 
 .p-nav-horiz li {
   display: inline-block;
   opacity: 0.5;
-  height: 54px;
 }
 .p-nav-horiz li:hover {
   opacity: 1;
