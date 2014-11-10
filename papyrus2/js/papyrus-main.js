@@ -13,14 +13,14 @@ $(function () {
 
   $.fn.fitText = function () {
     var parentWidth, newFontSize, ratio;
-    $(this).each(function () {
-      parentWidth = Math.min($(this).parent().innerWidth() - parseInt($(this).parent().css("padding")), screen.width);
+    $(this).each(function (index, element) {
+      parentWidth = Math.min($(this).parent().innerWidth() - parseInt($(this).parent().css("padding") || 0), screen.width);
       if(parentWidth !== $(this).data("fit-text-parent-former-width")) {
         $(this).css({
           "position": "absolute"
         });
         ratio = parentWidth / $(this).outerWidth(true);
-        newFontSize = Math.floor(parseInt($(this).css("font-size")) * ratio * 1);
+        newFontSize = Math.floor(parseInt($(this).css("font-size") || 0) * ratio * 1);
         $(this).data("fit-text-original-height", $(this).data("fit-text-original-height") || $(this).height());
         $(this).css({
           "position": "static",
