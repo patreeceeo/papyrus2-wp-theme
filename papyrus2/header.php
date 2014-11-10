@@ -16,7 +16,9 @@
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 <link rel="icon" href="<?php echo get_template_directory_uri() . "/favicon.gif"; ?>">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<link href='http://fonts.googleapis.com/css?family=Lato:300,300italic' rel='stylesheet' type='text/css'>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <?php wp_head(); ?>
 </head>

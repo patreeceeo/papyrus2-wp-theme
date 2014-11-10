@@ -3,11 +3,9 @@ html {
 }
 
 html, body {
-  /* font-family: web_serveroff, sans-serif; */
-  font-family: "Open Sans","Helvetica Neue",Helvetica,Helvetica,Arial,sans-serif;
+  font-family: "Lato", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 22px;
   line-height: 33px;
-  font-weight: 200;
 }
 
 a {

@@ -20,13 +20,12 @@ $(function () {
           "position": "absolute"
         });
         ratio = parentWidth / $(this).outerWidth(true);
-        newFontSize = Math.floor(parseInt($(this).css("font-size")) * ratio * 0.95);
+        newFontSize = Math.floor(parseInt($(this).css("font-size")) * ratio * 1);
         $(this).data("fit-text-original-height", $(this).data("fit-text-original-height") || $(this).height());
         $(this).css({
           "position": "static",
           "font-size": newFontSize + "px",
           "line-height": newFontSize + "px"
-          // "line-height": Math.max(newFontSize, $(this).data("fix-text-original-height")) + "px"
         });
         $(this).data("fit-text-parent-former-width", parentWidth);
       }
