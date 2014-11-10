@@ -130,8 +130,8 @@ ul.p-menu li a {
   position: relative;
 }
 .p-welcome-sign p {
-  position: absolute;
-  bottom: 0;
+  /* position: absolute; */
+  /* bottom: 0; */
 }
 .p-welcome-sign .p-welcome-sign-slide {
   position: absolute;

@@ -35,10 +35,10 @@
       duration = 0;
     }
     this.$el.css({
-      "-webkit-transition": "-webkit-transform "+this.duration+"ms, opacity 200ms",
-      "-moz-transition": "transform "+this.duration+"ms, opacity 200ms",
-      "-o-transition": "transform "+this.duration+"ms, opacity 200ms",
-      "transition": "transform "+this.duration+"ms, opacity 200ms"
+      "-webkit-transition": "-webkit-transform "+this.duration+"ms, opacity 300ms",
+      "-moz-transition": "transform "+this.duration+"ms, opacity 300ms",
+      "-o-transition": "transform "+this.duration+"ms, opacity 300ms",
+      "transition": "transform "+this.duration+"ms, opacity 300ms"
     });
     this.$el.css({
       "-webkit-transform": "-webkit-translate("+this.translateX+","+this.translateY+")",

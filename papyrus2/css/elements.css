@@ -3,9 +3,11 @@ html {
 }
 
 html, body {
-  font-family: web_serveroff, sans-serif;
+  /* font-family: web_serveroff, sans-serif; */
+  font-family: "Open Sans","Helvetica Neue",Helvetica,Helvetica,Arial,sans-serif;
   font-size: 22px;
   line-height: 33px;
+  font-weight: 200;
 }
 
 a {
@@ -18,14 +20,16 @@ h1, h2, h3 {
   margin: 0 15px;
   opacity: 0.66;
   font-variant: small-caps;
+  white-space: nowrap;
 }
 h1 {
-  font-size: 66px;
-  line-height: 66px;
+  font-size: 55px;
+  line-height: 55px;
 }
 h2 {
   font-size: 44px;
   line-height: 44px;
+  opacity: 0.5;
 }
 h3 {
   font-size: 33px;
