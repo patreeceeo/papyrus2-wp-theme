@@ -22,7 +22,7 @@
 </head>
 
 <body <?php body_class(); ?>>
-  <nav class="p-layout-top-nav u-zi-nav">
+  <nav class="p-layout-top-nav u-zi-nav u-only-desktop">
     <ul class="p-nav-horiz u-cf">
       <li class="u-pull-right">
         <a class="p-keyboard-key p-keyboard-key--mirror" href="/blog">Blog</a>

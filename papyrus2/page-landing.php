@@ -33,6 +33,19 @@ get_header(); ?>
         <h3>Software Engineer &amp;&amp; Graphic Designer for Freelance</h3>
         <p>Need an expert for your next project? I delight in delivering <a href="/blog/tag/balanced">balanced</a> solutions, exceeding expectations and sharing my knowledge.</p>
       </section>
+      <nav class="u-only-mobile u-zi-nav">
+        <ul class="p-menu ">
+          <li>
+            <a class="p-bg-solid-dark" href="/blog">Blog</a>
+          </li>
+          <li>
+            <a class="p-bg-solid-dark" href="/portfolio">Portfolio</a>
+          </li>
+          <li>
+            <a class="p-bg-solid-dark" href="/gps">GPS</a>
+          </li>
+        </ul>
+      </nav>
     </div>
   </div>
 </main>

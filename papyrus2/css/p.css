@@ -4,9 +4,23 @@
   color: white;
 }
 
+.p-bg-solid-dark::selection {
+  background: white;
+}
+.p-bg-solid-dark::-moz-selection {
+  background: white;
+}
+
 .p-layout-top-nav {
   position: fixed;
   top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.p-layout-bottom-nav {
+  position: fixed;
+  bottom: 0;
   left: 0;
   width: 100%;
 }
@@ -17,6 +31,16 @@
   left: 0;
   right: 0;
   bottom: 0;
+}
+
+
+ul.p-menu a {
+  display: block;
+  padding: 5.5px 15px;
+  opacity: 0.66;
+}
+ul.p-menu a:hover {
+  opacity: 1;
 }
 
 .p-nav-horiz li {
@@ -122,11 +146,14 @@
     min-width: 0;
     min-height: 0;
     overflow-y: scroll;
+    overflow-x: hidden;
   }
   .p-welcome-sign .p-welcome-sign-inner {
-    margin: 87px 0 0 0;
+    /* The margin is to allow for scrolling when the nav
+     * menu might be covering */
+    margin: 0;
     width: 100%;
-    height: auto;
+    height: 350px;
     position: static;
   }
 
@@ -135,6 +162,7 @@
     width: 100%;
     height: auto;
     text-align: center;
+    float: none;
   }
 
   .p-welcome-sign figure {

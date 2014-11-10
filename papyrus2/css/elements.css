@@ -39,10 +39,4 @@ p {
   white-space: normal;
 }
 
-::selection {
-  background: white;
-}
-::-moz-selection {
-  background: white;
-}
 
