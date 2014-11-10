@@ -214,18 +214,38 @@
   };
 
   $(function () {
-    $("[data-papyrus-plugin=slider]").each(function () {
+    var pluginContainers = $("[data-papyrus-plugin=slider]");
+
+    var configureDocument = function (index, element) {
+      if($(element).is(":visible")) {
+        $("html").css({"overflow": "hidden"});
+      } else {
+        $("html").css({"overflow": ""});
+      }
+    };
+
+    var createSlider = function (index, element) {
       var model, view, $el, $slides;
-      $el = $(this);
-      $slides = $("[data-papyrus-slider-element=slide]", $el);
+      if($(element).is(":visible")) {
+        $el = $(this);
+        $slides = $("[data-papyrus-slider-element=slide]", $el);
 
-      model = new Model();
+        model = new Model();
 
-      view = new View({
-        $slides: $slides,
-        model: model
-      });
-      view.render();
+        view = new View({
+          $slides: $slides,
+          model: model
+        });
+        view.render();
+      }
+    };
+
+    pluginContainers.each(configureDocument);
+
+    $(window).resize(function () {
+      pluginContainers.each(configureDocument);
     });
+
+    pluginContainers.each(createSlider);
   });
 })(this.$);

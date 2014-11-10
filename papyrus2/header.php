@@ -18,12 +18,12 @@
 
 <link href='http://fonts.googleapis.com/css?family=Lato:300,300italic' rel='stylesheet' type='text/css'>
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <?php wp_head(); ?>
 </head>
 
-<body <?php body_class(); ?>>
+<body <?php body_class("p-bg-solid-dark"); ?>>
   <nav class="p-layout-top-nav u-zi-nav u-only-desktop">
     <ul class="p-nav-horiz u-cf">
       <li class="u-pull-right">

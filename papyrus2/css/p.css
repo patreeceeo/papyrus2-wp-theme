@@ -175,14 +175,12 @@ ul.p-nav-vert li a {
 }
 
 @media (max-width: 700px) {
-  html {
-    overflow: scroll !important;
-    height: 100%;
-    width: 100%;
-  }
 
-  body, * {
-    overflow: visible !important;
+  * {
+    /* This might prove problematic. I'm just being lazy here
+     * and doing a blanket override so the page is easier to 
+     * view on a mobile device, then overriding this override
+     * for specific elements */
     opacity: 1 !important;
   }
 
@@ -199,8 +197,7 @@ ul.p-nav-vert li a {
     position: static;
   }
 
-  .p-welcome-sign section,
-  .p-welcome-sign figure {
+  .p-welcome-sign section {
     width: 100%;
     height: auto;
     text-align: center;
@@ -208,7 +205,6 @@ ul.p-nav-vert li a {
   }
 
   .p-welcome-sign figure {
-    /* position: absolute; */
     display: none;
   }
   .p-welcome-sign section:after {

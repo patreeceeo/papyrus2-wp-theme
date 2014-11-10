@@ -1,11 +1,10 @@
-html {
-  overflow: hidden;
-}
-
 html, body {
   font-family: "Lato", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 22px;
   line-height: 33px;
+  /* force both to fill the screen so child elements can if
+   * they want to */
+  height: 100%;
 }
 
 a {
@@ -15,7 +14,9 @@ a {
 }
 
 h1, h2, h3 {
-  margin: 0 15px;
+  /* Use padding instead of margin so the edges of text aren't 
+   * cut off */
+  padding: 0 15px;
   opacity: 0.66;
   font-variant: small-caps;
   white-space: nowrap;
@@ -35,7 +36,9 @@ h3 {
 }
 
 p {
-  margin: 33px 15px 0 15px;
+  /* Use padding instead of margin so the edges of text aren't 
+   * cut off */
+  padding: 33px 15px 0 15px;
   font-family: Baskerville, freight-text-pro, Cambria, Georgia, 'Times New Roman', Times, serif;
   opacity: 0.5;
   white-space: normal;
