@@ -19,6 +19,7 @@ $(function () {
           // In the future, there should be an API for turning off the slider,
           // but for now simply hiding the parent element will suffice.
           $("#page-landing").hide();
+          $("#page-landing .js-slider").xySlider().xySlider("stop");
           $("#page-contact").removeClass("p-slider--down");
         }, 500);
         break;
@@ -27,6 +28,9 @@ $(function () {
         // In the future, there should be an API for turning off the slider,
         // but for now simply hiding the parent element will suffice.
         $("#page-landing").show();
+        // Bug: Multiple slides are being shown at once b/c 
+        //      redundant instances are being created here vvv.
+        $("#page-landing .js-slider").xySlider().xySlider("start");
         setTimeout(function () {
           $("#page-landing").removeClass("p-slider--up");
         }, 500);

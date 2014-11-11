@@ -1,6 +1,8 @@
 !(function ($) {
   "use strict";
 
+  var pluginName = "xySlider";
+
   var Model = function () {
     this.currentSlideIndex = -1;
     this.slideCount = 0;
@@ -213,39 +215,79 @@
     });
   };
 
-  $(function () {
-    var pluginContainers = $("[data-papyrus-plugin=slider]");
+     
+    // var pluginContainers = $(this);
+    //
+  var defaults = {};
 
-    var configureDocument = function (index, element) {
-      if($(element).is(":visible")) {
+	function Plugin ( element, options ) {
+				this.element = element;
+				this.settings = $.extend( {}, defaults, options );
+				this._defaults = defaults;
+				this._name = pluginName;
+				this.init();
+	}
+
+  $.extend(Plugin.prototype, {
+    init: function () {
+      var $slides, self = this;
+      $(window).resize(function () {
+        self._configureHostDocument(); 
+      });
+      this._configureHostDocument(); 
+      if($(this.element).is(":visible")) {
+        $slides = $(this.element).children();
+
+        this.model = new Model();
+
+        this.view = new View({
+          $slides: $slides,
+          model: this.model
+        });
+
+      }
+    },
+    start: function () {
+      this.view.render();
+    },
+    _configureHostDocument: function () {
+      if($(this.element).is(":visible")) {
         $("html").css({"overflow": "hidden"});
       } else {
         $("html").css({"overflow": ""});
       }
-    };
+    }
+  });
 
-    var createSlider = function (index, element) {
-      var model, view, $el, $slides;
-      if($(element).is(":visible")) {
-        $el = $(this);
-        $slides = $("[data-papyrus-slider-element=slide]", $el);
 
-        model = new Model();
+  $.fn[pluginName] = function (options) {
+    options = options || {};
+    this.each(function() {
+      var plugin, methodName, methodArgs;
 
-        view = new View({
-          $slides: $slides,
-          model: model
-        });
-        view.render();
+      plugin = $.data( this, "plugin_" + pluginName); 
+
+      if (plugin == null) {
+        if(!$.isPlainObject(options)) {
+          throw new Error(pluginName + 
+            ": plugin method can not be called before initialization");
+        }
+
+        plugin = new Plugin(this, options);
+        $.data(this, "plugin_" + pluginName, plugin);
+      } else {
+        if(!$.isFunction(plugin[options])) {
+          throw new Error(pluginName + 
+            ": \"" + methodName + "\" is not a method of " + pluginName);
+        }
+
+        methodName = options;
+        methodArgs = Array.prototype.slice.call(arguments, 1);
+        return plugin[methodName].apply(plugin, methodArgs);
       }
-    };
-
-    pluginContainers.each(configureDocument);
-
-    $(window).resize(function () {
-      pluginContainers.each(configureDocument);
     });
 
-    pluginContainers.each(createSlider);
-  });
+    // chain jQuery functions
+    return this;
+  };
 })(this.$);
