@@ -103,18 +103,19 @@ ul.p-nav-vert li a {
   transition: transform 500ms;
   height: 100%;
   width: 100%;
+  overflow: visible;
 }
 .p-slider.p-slider--up {
-  -webkit-transform: translateY(-100%);
-  transform: translateY(-100%);
-  position: absolute;
+  -webkit-transform: translateY(-200%);
+  transform: translateY(-200%);
+  position: fixed;
   top: 0;
   left: 0;
 }
 .p-slider.p-slider--down {
-  -webkit-transform: translateY(100%);
-  transform: translateY(100%);
-  position: absolute;
+  -webkit-transform: translateY(200%);
+  transform: translateY(200%);
+  position: fixed;
   top: 0;
   left: 0;
 }
@@ -211,7 +212,11 @@ ul.p-nav-vert li a {
      * and doing a blanket override so the page is easier to 
      * view on a mobile device, then overriding this override
      * for specific elements */
-    opacity: 1 !important;
+    opacity: 1;
+  }
+
+  .p-article p {
+    opacity: 0.75;
   }
 
   .p-welcome-sign {

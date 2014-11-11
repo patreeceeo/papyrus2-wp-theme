@@ -16,7 +16,7 @@ a {
 h1, h2, h3 {
   /* Use padding instead of margin so the edges of text aren't 
    * cut off */
-  padding: 0 15px;
+  padding: 22px 15px 0 15px;
   opacity: 0.66;
   font-variant: small-caps;
   white-space: nowrap;
@@ -44,4 +44,7 @@ p {
   white-space: normal;
 }
 
+em {
+  font-style: italic;
+}
 

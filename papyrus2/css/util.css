@@ -45,15 +45,25 @@
     *zoom: 1;
 }
 
+.u-pack-vert {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.u-scroll-vert {
+  overflow-y: scroll !important;
+}
 
 @media (max-width: 700px) {
   .u-only-desktop {
-    display: none;
+    display: none !important;
   }
 }
 
 @media  (min-width: 701px) {
   .u-only-mobile {
-    display: none;
+    display: none !important;
   }
 }
