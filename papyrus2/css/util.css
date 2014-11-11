@@ -2,6 +2,10 @@
   float: right !important;
 }
 
+.u-center-text {
+  text-align: center;
+}
+
 .u-zi-bg {
   z-index: 0 !important;
 }

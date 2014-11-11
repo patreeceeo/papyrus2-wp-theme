@@ -59,6 +59,9 @@ ul.p-nav-vert li a {
 .p-nav-horiz li:hover {
   opacity: 1;
 }
+.p-keyboard-row {
+  height: 54px;
+}
 .p-keyboard-key {
   font-style: italic;
   border-bottom: 17px solid rgb(255, 255, 255);
@@ -93,6 +96,27 @@ ul.p-nav-vert li a {
   left: auto;
   border-left-width: 6px;
   border-bottom-width: 6px;
+}
+
+.p-slider {
+  -webkit-transition: -webkit-transform 500ms;
+  transition: transform 500ms;
+  height: 100%;
+  width: 100%;
+}
+.p-slider.p-slider--up {
+  -webkit-transform: translateY(-100%);
+  transform: translateY(-100%);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.p-slider.p-slider--down {
+  -webkit-transform: translateY(100%);
+  transform: translateY(100%);
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .p-welcome-sign {
@@ -172,6 +196,12 @@ ul.p-nav-vert li a {
 }
 .p-call-to-action:hover {
   opacity: 1;
+}
+
+.p-article {
+  max-width: 730px;
+  padding: 15px;
+  margin: 0 auto;
 }
 
 @media (max-width: 700px) {

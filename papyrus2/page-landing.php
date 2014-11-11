@@ -7,7 +7,7 @@
 get_header(); ?>
 
 
-<main class="p-welcome-sign">
+<main class="p-welcome-sign p-slider" id="page-landing">
   <div class="p-welcome-sign-inner">
     <div class="u-cf">
       <figure>
@@ -36,7 +36,7 @@ get_header(); ?>
       </section>
     </div>
     <p class="p-call-to-action">
-      <a class="" href="/contact">Contact me</a>
+      <a class="" href="#contact">Contact me</a>
     </p>
   </div>
   <nav class="u-only-mobile u-zi-nav">
@@ -52,4 +52,11 @@ get_header(); ?>
       </li>
     </ul>
   </nav>
+</main>
+<main class="p-bg-solid-dark p-slider p-slider--down" id="page-contact">
+  <div class="p-keyboard-row"></div>
+  <article class="p-article">
+    <h1 class="js-fit-text">Hello & thanks for your interest!</h1>
+    <p class="u-center-text"><a href="mailto:patrick@papyrusoft.com">patrick@papyrusoft.com</a></p>
+  </article>
 </main>
