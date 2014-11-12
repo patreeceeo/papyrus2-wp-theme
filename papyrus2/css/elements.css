@@ -42,6 +42,7 @@ p, aside {
   font-family: Baskerville, freight-text-pro, Cambria, Georgia, 'Times New Roman', Times, serif;
   opacity: 0.5;
   white-space: normal;
+  text-align: justify;
 }
 
 em, aside {
