@@ -35,7 +35,7 @@ h3 {
   line-height: 33px;
 }
 
-p {
+p, aside {
   /* Use padding instead of margin so the edges of text aren't 
    * cut off */
   padding: 33px 15px 0 15px;
@@ -44,7 +44,7 @@ p {
   white-space: normal;
 }
 
-em {
+em, aside {
   font-style: italic;
 }
 
