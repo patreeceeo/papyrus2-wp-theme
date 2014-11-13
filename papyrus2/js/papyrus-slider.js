@@ -226,8 +226,6 @@
   };
 
      
-    // var pluginContainers = $(this);
-    //
   var defaults = {};
 
 	function Plugin ( element, options ) {
@@ -240,42 +238,31 @@
 
   $.extend(Plugin.prototype, {
     init: function () {
-      var $slides, self = this;
-      $(window).resize(function () {
-        self._configureHostDocument(); 
+      var $slides;
+      $slides = $(this.element).children();
+
+      this.model = new Model();
+
+      this.view = new View({
+        $slides: $slides,
+        model: this.model
       });
-      this._configureHostDocument(); 
-      if($(this.element).is(":visible")) {
-        $slides = $(this.element).children();
-
-        this.model = new Model();
-
-        this.view = new View({
-          $slides: $slides,
-          model: this.model
-        });
-
-      }
+      this._started = false;
     },
     start: function () {
-      this._configureHostDocument();
-      if(this.view != null) {
+      $("html").css({"overflow": "hidden"});
+      if(this.view != null && this._started === false) {
         this.view.render();
+        this._started = true;
       }
     },
     stop: function () {
-      this._configureHostDocument();
+      $("html").css({"overflow": ""});
       if(this.view != null) {
         this.view.remove();
+        this._started = false;
       }
     },
-    _configureHostDocument: function () {
-      if($(this.element).is(":visible")) {
-        $("html").css({"overflow": "hidden"});
-      } else {
-        $("html").css({"overflow": ""});
-      }
-    }
   });
 
 
