@@ -214,10 +214,6 @@ ul.p-nav-horiz {
     opacity: 1;
   }
 
-  .p-content-area p {
-    opacity: 0.75;
-  }
-
   .p-welcome-sign {
     min-width: 0;
     min-height: 0;
