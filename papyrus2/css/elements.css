@@ -45,6 +45,10 @@ p, aside {
   text-align: justify;
 }
 
+p:last-child {
+  padding-bottom: 33px;
+}
+
 em, aside {
   font-style: italic;
 }
