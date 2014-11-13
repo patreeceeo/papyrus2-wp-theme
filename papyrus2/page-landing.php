@@ -8,6 +8,19 @@ get_header(); ?>
 
 
 <body <?php body_class("p-bg-solid-dark"); ?>>
+<nav class="p-layout-top-nav u-zi-nav u-only-desktop">
+  <ul class="p-nav-horiz u-cf">
+    <li class="u-pull-right">
+      <a class="p-keyboard-key p-keyboard-key--mirror" href="/blog">Blog</a>
+    </li>
+    <li class="u-pull-left">
+      <a class="p-keyboard-key" href="/portfolio">Portfolio</a>
+    </li>
+    <li class="u-pull-left">
+      <a class="p-keyboard-key" href="/gps">GPS</a>
+    </li>
+  </ul> 
+</nav>
 <main class="p-welcome-sign p-slider" id="page-landing">
   <div class="p-welcome-sign-inner">
     <div class="u-cf">
