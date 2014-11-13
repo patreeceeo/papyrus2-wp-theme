@@ -7,6 +7,7 @@
 get_header(); ?>
 
 
+<body <?php body_class("p-bg-solid-dark"); ?>>
 <main class="p-welcome-sign p-slider" id="page-landing">
   <div class="p-welcome-sign-inner">
     <div class="u-cf">
@@ -57,7 +58,7 @@ get_header(); ?>
   <div class="p-keyboard-row u-only-desktop"></div>
   <article class="p-article">
     <h1 class="js-fit-text">Hello & thanks for your interest!</h1>
-    <p>First, a little about what I can do for you: If you can describe your <em>needs</em>, <em>wants</em> and <em>dreams</em> with regard to software of a particular purpose, then together we can translate those needs, wants and dreams into a &ldquo;<em>Spec</em>&rdquo;. In any software project there is usually several iterations of refining and clarifying the Spec until all parties agree that it unambiguously describes a piece of software that fulfills the original needs, wants, dreams. I then transmute the Spec into functioning software, doing so in multiple small iterations so that all parties can address issues in a timely manner and have the peace of mind that comes with accurate, proactive communication. The emphasis on iterations is an aspect of Agile Software Development, an approach popular in Silicon Valley and top-tier software firms.
+    <p>First, a little about what I can do for you: If you can describe your <em>needs</em>, <em>wants</em> and <em>dreams</em> with regard to software of a particular purpose, then together we can translate those needs, wants and dreams into a &ldquo;<em>Spec</em>&rdquo;. In any software project there is usually several iterations of refining and clarifying the Spec until all parties agree that it unambiguously describes a piece of software that fulfills the original needs, wants, dreams. I then transmute the Spec into functioning software, doing so in <a href="http://en.wikipedia.org/wiki/Continuous_delivery" target="_blank">small iterations</a> so that all parties can address issues in a timely manner and have the peace of mind that comes with accurate, proactive communication. The emphasis on iterations is an aspect of <a href="http://en.wikipedia.org/wiki/Agile_software_development" target="_blank">Agile Software Development</a>, an approach popular in Silicon Valley and top-tier software firms.
     </p>
     <p>If what you want is a website, the above might seem a bit over-involved. A website is a piece of software and, however, no piece of software is ever really as simple as it appears to be from the outside. That's part of the value I can provide: aside from actually writing the software, I can help determine what is relatively easy to create and what is relatively hard to create. Websites are often simpler than other kinds of software, but it's better to invest a little too much time and energy into the Spec than to waste days or weeks of developer time, <strong>and your money</strong>, on the wrong idea!</p>
     <p>Building quality software is not easy. It's not just about fulfilling those needs, wants and dreams, but it's also about being <em>maintainable</em>, <em>robust</em> and <em>secure</em>. That is why you should choose someone with a track record of building software with these qualities, someone like <em>moi.</em>~</p>
@@ -67,3 +68,4 @@ get_header(); ?>
     <p class="u-center-text"><a href="mailto:patrick@papyrusoft.com">patrick@papyrusoft.com</a></p>
   </article>
 </main>
+</body>

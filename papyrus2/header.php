@@ -23,7 +23,6 @@
 <?php wp_head(); ?>
 </head>
 
-<body <?php body_class("p-bg-solid-dark"); ?>>
   <nav class="p-layout-top-nav u-zi-nav u-only-desktop">
     <ul class="p-nav-horiz u-cf">
       <li class="u-pull-right">
