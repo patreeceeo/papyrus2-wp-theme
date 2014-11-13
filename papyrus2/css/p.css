@@ -214,6 +214,10 @@ ul.p-nav-horiz {
     opacity: 1;
   }
 
+  .p-content-area p {
+    text-align: left;
+  }
+
   .p-welcome-sign {
     min-width: 0;
     min-height: 0;
