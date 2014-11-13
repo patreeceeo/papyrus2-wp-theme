@@ -17,7 +17,7 @@ get_header(); ?>
       <a class="p-keyboard-key" href="/portfolio">Portfolio</a>
     </li>
     <li class="u-pull-left">
-      <a class="p-keyboard-key" href="/gps">GPS</a>
+      <a class="p-keyboard-key" href="/guiding-principles">GPS</a>
     </li>
   </ul> 
 </nav>
@@ -46,7 +46,7 @@ get_header(); ?>
         <h1 class="js-fit-text u-pack-vert">Patrick Canfield</h1>
         <h2 class="js-fit-text u-pack-vert"><em>Software Engineer - Freelance &amp;&amp; Consulting</em></h2>
         <p>Let me work my magic on your next project!</p>
-        <aside class="u-only-desktop">Figure left: examples of past work. Use the arrow keys to control which thumbnail is shown. Click for details!</aside>
+        <p class="u-only-desktop"><em>Figure left: examples of past work. Use the arrow keys to control which thumbnail is shown. Click for details!</em></p>
       </section>
     </div>
     <p class="p-call-to-action">
@@ -69,7 +69,7 @@ get_header(); ?>
 </main>
 <main class="p-bg-solid-dark p-slider p-slider--down" id="page-contact">
   <div class="p-keyboard-row u-only-desktop"></div>
-  <article class="p-article">
+  <article class="p-content-area">
     <h1 class="js-fit-text">Hello & thanks for your interest!</h1>
     <p>First, a little about what I can do for you: If you can describe your <em>needs</em>, <em>wants</em> and <em>dreams</em> with regard to software of a particular purpose, then together we can translate those needs, wants and dreams into a &ldquo;<em>Spec</em>&rdquo;. In any software project there is usually several iterations of refining and clarifying the Spec until all parties agree that it unambiguously describes a piece of software that fulfills the original needs, wants, dreams. I then transmute the Spec into functioning software, doing so in <a href="http://en.wikipedia.org/wiki/Continuous_delivery" target="_blank">small iterations</a> so that all parties can address issues in a timely manner and have the peace of mind that comes with accurate, proactive communication. The emphasis on iterations is an aspect of <a href="http://en.wikipedia.org/wiki/Agile_software_development" target="_blank">Agile Software Development</a>, an approach popular in Silicon Valley and top-tier software firms.
     </p>
