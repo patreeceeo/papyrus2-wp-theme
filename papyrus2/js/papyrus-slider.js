@@ -55,6 +55,12 @@
     this.$slides = options.$slides;
     this.model = options.model;
     this.model.slideCount = this.$slides.length;
+    this._keyupHandler = (function (self) {
+      var method = self._keyupHandler;
+      return function () {
+        method.apply(self, arguments); 
+      };
+    })(this);
   };
 
   View.prototype.transitionMap = {
@@ -132,7 +138,7 @@
     }
   };
   View.prototype.render = function () {
-    var slideInterval, self = this;
+    var self = this;
     this.$slides.each(function () {
       var prepTransition = new TransitionView(this, {
         duration: 0,
@@ -143,7 +149,7 @@
       prepTransition.render();
     });
 
-    slideInterval = setInterval(function () {
+    this._slideInterval = setInterval(function () {
       var randomName;
       if(!self.model.isSliding) {
         randomName = ["left", "up", "right", "down"][Math.floor(Math.random() * 4)];
@@ -159,40 +165,44 @@
       }
     }, 4000);
 
-    $(document).on("keyup", function (e) {
-      var keyCode, keyName;
-      keyCode = e.keyCode || e.which;
-      if(!self.model.isSliding) {
-        switch(keyCode) {
-          case 37:
-            keyName = "left";
-            break;
-          case 38:
-            keyName = "up";
-            break;
-          case 39:
-            keyName = "right";
-            break;
-          case 40:
-            keyName = "down";
-            break;
-        }
-        if(self.transitionMap[keyName] != null) {
-          // Okay, you want to be in control of the sliding
-          clearInterval(slideInterval);
-          self.model.isSliding = true;
-          if(keyName == "left" || keyName == "up") {
-            self.model.showPrevSlide();
-          } else {
-            self.model.showNextSlide();
-          }
-          self._renderTransitions(self.transitionMap[keyName], function () {
-            self.model.isSliding = false;
-          });
-        }
+    $(document).on("keyup", this._keyupHandler);
+  };
+  View.prototype.remove = function () {
+    clearInterval(this._slideInterval);
+    $(document).unbind("keyup", this._keyupHandler);
+  };
+  View.prototype._keyupHandler = function (e) {
+    var keyCode, keyName;
+    keyCode = e.keyCode || e.which;
+    if(!this.model.isSliding) {
+      switch(keyCode) {
+        case 37:
+          keyName = "left";
+          break;
+        case 38:
+          keyName = "up";
+          break;
+        case 39:
+          keyName = "right";
+          break;
+        case 40:
+          keyName = "down";
+          break;
       }
-    });
-
+      if(this.transitionMap[keyName] != null) {
+        // Okay, you want to be in control of the sliding
+        clearInterval(this._slideInterval);
+        this.model.isSliding = true;
+        if(keyName == "left" || keyName == "up") {
+          this.model.showPrevSlide();
+        } else {
+          this.model.showNextSlide();
+        }
+        this._renderTransitions(this.transitionMap[keyName], function () {
+          this.model.isSliding = false;
+        });
+      }
+    }
   };
   View.prototype._showEl = function () {
     return this.$slides[this.model.currentSlideIndex]; 
@@ -248,7 +258,16 @@
       }
     },
     start: function () {
-      this.view.render();
+      this._configureHostDocument();
+      if(this.view != null) {
+        this.view.render();
+      }
+    },
+    stop: function () {
+      this._configureHostDocument();
+      if(this.view != null) {
+        this.view.remove();
+      }
     },
     _configureHostDocument: function () {
       if($(this.element).is(":visible")) {
@@ -261,28 +280,28 @@
 
 
   $.fn[pluginName] = function (options) {
-    options = options || {};
     this.each(function() {
       var plugin, methodName, methodArgs;
 
       plugin = $.data( this, "plugin_" + pluginName); 
 
       if (plugin == null) {
-        if(!$.isPlainObject(options)) {
+        if(!$.isPlainObject(options || {})) {
           throw new Error(pluginName + 
             ": plugin method can not be called before initialization");
         }
 
         plugin = new Plugin(this, options);
         $.data(this, "plugin_" + pluginName, plugin);
-      } else {
-        if(!$.isFunction(plugin[options])) {
+      } else if(options != null) {
+        methodName = options;
+        methodArgs = Array.prototype.slice.call(arguments, 1);
+
+        if(!$.isFunction(plugin[methodName])) {
           throw new Error(pluginName + 
             ": \"" + methodName + "\" is not a method of " + pluginName);
         }
 
-        methodName = options;
-        methodArgs = Array.prototype.slice.call(arguments, 1);
         return plugin[methodName].apply(plugin, methodArgs);
       }
     });
