@@ -214,8 +214,8 @@ ul.p-nav-horiz {
     opacity: 1;
   }
 
-  .p-content-area p {
-    text-align: left;
+  .p-content-area p, section p {
+    text-align: inherit;
   }
 
   .p-welcome-sign {
@@ -234,8 +234,8 @@ ul.p-nav-horiz {
   .p-welcome-sign section {
     width: 100%;
     height: auto;
-    text-align: center;
     float: none;
+    text-align: center;
   }
 
   .p-welcome-sign figure {
