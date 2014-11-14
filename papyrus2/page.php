@@ -33,4 +33,16 @@ get_header(); ?>
 	</div><!-- #primary -->
   <?php get_sidebar(); ?>
   <?php get_footer(); ?>
+  <script type="text/javascript">
+    $(function () {
+      $("header h1").fitText({
+        maxSize: "initial"
+      });
+    });
+    $(window).resize(function () {
+      $("header h1").fitText({
+        maxSize: "initial"
+      });
+    });
+  </script>
 </body>

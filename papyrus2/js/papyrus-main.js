@@ -51,9 +51,21 @@ $(function () {
   $(window).hashchange(showPageForHash);
   showPageForHash();
 
-  $.fn.fitText = function () {
-    var parentWidth, newFontSize, ratio;
+  $.fn.fitText = function (options) {
+    var parentWidth, newFontSize, ratio, maxSize;
+    options = options || {};
     $(this).each(function () {
+      maxSize = parseInt(options.maxSize) || Number.POSITIVE_INFINITY; 
+     
+      if(options.maxSize === "initial") {
+        if($(this).data("fit-text-max-size") == null) {
+          maxSize = parseInt($(this).css("font-size")) || 0;
+          $(this).data("fit-text-max-size", maxSize);
+        } else {
+          maxSize = $(this).data("fit-text-max-size");
+        }
+      }
+
       parentWidth = Math.min(
         $(this).parent().innerWidth() -
           (parseInt($(this).parent().css("padding-left")) || 0) -
@@ -65,7 +77,10 @@ $(function () {
           "position": "absolute"
         });
         ratio = parentWidth / $(this).innerWidth();
-        newFontSize = Math.floor((parseInt($(this).css("font-size")) || 0) * ratio * 1);
+        newFontSize = Math.min(
+            maxSize, 
+            Math.floor((parseInt($(this).css("font-size")) || 0) * ratio * 1)
+        );
         $(this).css({
           "position": "static",
           "font-size": newFontSize + "px",
