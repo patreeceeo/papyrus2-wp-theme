@@ -42,8 +42,17 @@ p, ol, ul {
   font-family: Baskerville, freight-text-pro, Cambria, Georgia, 'Times New Roman', Times, serif;
   opacity: 0.7;
   white-space: normal;
+}
+
+p {
   text-align: justify;
 }
+@media (max-width: 700px) {
+  p {
+    text-align: left;
+  }
+}
+
 
 p:last-child, ol:last-child, ul:last-child {
   padding-bottom: 33px;

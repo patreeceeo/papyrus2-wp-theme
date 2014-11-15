@@ -214,10 +214,6 @@ ul.p-nav-horiz {
     opacity: 1;
   }
 
-  p, ul, ol {
-    text-align: inherit;
-  }
-
   .p-welcome-sign {
     min-width: 0;
     min-height: 0;
