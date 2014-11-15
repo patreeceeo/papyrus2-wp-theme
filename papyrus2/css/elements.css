@@ -58,6 +58,11 @@ p:last-child, ol:last-child, ul:last-child {
   padding-bottom: 33px;
 }
 
+ol {
+  list-style-type: decimal-leading-zero;
+  list-style-position: inside;
+}
+
 em {
   font-style: italic;
 }
