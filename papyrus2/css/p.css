@@ -214,7 +214,7 @@ ul.p-nav-horiz {
     opacity: 1;
   }
 
-  .p-content-area p, section p {
+  p, ul, ol {
     text-align: inherit;
   }
 
