@@ -13,13 +13,14 @@ a {
   border-bottom: 1px solid rgba(0, 0, 0, 0.25);
 }
 
-h1, h2, h3 {
+h1, h2, h3, h4, h5, h6 {
   /* Use padding instead of margin so the edges of text aren't 
    * cut off */
   padding: 22px 15px 0 15px;
   opacity: 0.8;
   font-variant: small-caps;
   white-space: nowrap;
+  font-size: 33px;
 }
 h1 {
   font-size: 66px;
@@ -69,4 +70,16 @@ em {
 
 strong {
   font-weight: bold;
+}
+
+pre {
+  white-space: pre-wrap;
+}
+
+article a {
+  max-width: 100%;
+  overflow: hidden;
+  display: inline-block;
+  text-overflow: ellipsis;
+  vertical-align: bottom;
 }

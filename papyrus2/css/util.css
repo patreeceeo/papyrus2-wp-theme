@@ -96,6 +96,12 @@
   background-attachment: fixed !important;
 }
 
+.u-text-no-wrap {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
 @media (max-width: 700px) {
   .u-only-desktop {
     display: none !important;

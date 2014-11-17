@@ -48,12 +48,12 @@ function papyrus2_post_nav() {
 		return;
 	}
 	?>
-	<nav class="navigation post-navigation" role="navigation">
+	<nav class="navigation post-navigation p-nav-posts p-content-area" role="navigation">
 		<h1 class="screen-reader-text"><?php _e( 'Post navigation', 'papyrus2' ); ?></h1>
 		<div class="nav-links">
 			<?php
-				previous_post_link( '<div class="nav-previous">%link</div>', _x( '<span class="meta-nav">&larr;</span>&nbsp;%title', 'Previous post link', 'papyrus2' ) );
-				next_post_link(     '<div class="nav-next">%link</div>',     _x( '%title&nbsp;<span class="meta-nav">&rarr;</span>', 'Next post link',     'papyrus2' ) );
+				next_post_link(     '<div class="nav-next u-pull-right u-text-no-wrap p-nav-posts-item">%link</div>',     _x( '%title&nbsp;<span class="meta-nav">&rarr;</span>', 'Next post link',     'papyrus2' ) );
+				previous_post_link( '<div class="nav-previous u-text-no-wrap p-nav-posts-item">%link</div>', _x( '<span class="meta-nav">&larr;</span>&nbsp;%title', 'Previous post link', 'papyrus2' ) );
 			?>
 		</div><!-- .nav-links -->
 	</nav><!-- .navigation -->
@@ -88,7 +88,7 @@ function papyrus2_posted_on() {
 		'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
 	);
 
-	echo '<span class="posted-on">' . $posted_on . '</span><span class="byline"> ' . $byline . '</span>';
+	echo '<p class="posted-on"><em>' . $posted_on . '</span><span class="byline"> ' . $byline . '</em></p>';
 
 }
 endif;

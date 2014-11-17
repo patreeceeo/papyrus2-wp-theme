@@ -204,6 +204,11 @@ ul.p-nav-horiz {
   opacity: 1;
 }
 
+.p-nav-posts .p-nav-posts-item {
+  max-width: 44%;
+  display: inline-block;
+}
+
 .p-bg-image-block {
   /* background image has to be set in-line */
   color: white;
