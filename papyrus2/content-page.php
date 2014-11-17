@@ -6,8 +6,10 @@
  */
 ?>
 
-<header class="entry-header p-bg-image-block u-center">
-  <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+<header class="entry-header p-bg-image-block u-center u-bg-fixed">
+  <div class="p-bg-image-block-overlay">
+    <?php the_title( '<h1 class="entry-title u-pack-vert">', '</h1>' ); ?>
+  </div>
 </header><!-- .entry-header -->
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
