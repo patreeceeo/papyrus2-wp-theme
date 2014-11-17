@@ -6,7 +6,12 @@
  */
 ?>
 
-<header class="entry-header p-bg-image-block u-center u-bg-fixed">
+<?php 
+  $image_data = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' ); 
+  $image_url = $image_data[0];
+?>
+
+<header class="entry-header p-bg-image-block u-center u-bg-fixed" style="background-image: url(<?php echo $image_url ?>);">
   <div class="p-bg-image-block-overlay">
     <?php the_title( '<h1 class="entry-title u-pack-vert">', '</h1>' ); ?>
   </div>
