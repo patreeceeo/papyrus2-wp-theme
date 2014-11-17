@@ -56,6 +56,35 @@
   overflow-y: scroll !important;
 }
 
+.u-center {
+  display: -ms-Flexbox !important;
+	-ms-box-orient: horizontal !important;
+
+	display: -webkit-flex !important;
+	display: -moz-flex !important;
+	display: -ms-flex !important;
+	display: flex !important;
+
+  -webkit-align-items: center !important;
+	-moz-align-items: center !important;
+	-ms-align-items: center !important;
+	align-items: center !important;
+
+  -webkit-justify-content: center !important;
+	-moz-justify-content: center !important;
+	-ms-justify-content: center !important;
+	justify-content: center !important;
+}
+
+.u-full-height {
+  display: block;
+  height: 100% !important;
+}
+
+.u-inline {
+  display: inline !important;
+}
+
 @media (max-width: 700px) {
   .u-only-desktop {
     display: none !important;

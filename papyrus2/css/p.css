@@ -204,6 +204,15 @@ ul.p-nav-horiz {
   opacity: 1;
 }
 
+.p-bg-image-block {
+  background-image: url(http://4.bp.blogspot.com/-poCM_DIA3qk/TxCiCH8kbzI/AAAAAAAAABk/SOlaKikgsGY/s1600/winding_road.jpg);
+  color: white;
+  height: 100%;
+  background-size: cover;
+  background-position: 50%;
+  text-shadow: 5px 5px rgba(0,0,0,0.5);
+}
+
 @media (max-width: 700px) {
 
   * {

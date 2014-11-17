@@ -13,8 +13,8 @@
 get_header(); ?>
 
 <body <?php body_class(); ?>>
-	<div id="primary" class="content-area p-content-area">
-		<main id="main" class="site-main" role="main">
+	<div id="primary" class="content-area u-inline">
+		<main id="main" class="site-main u-inline" role="main">
 
 			<?php while ( have_posts() ) : the_post(); ?>
 
