@@ -112,12 +112,14 @@ textarea {
 form.comment-form {
   border: 1px solid rgba(0,0,0,0.3);
   border-radius: 5px;
+  background-color: #5f9;
 }
 form.comment-form p {
   font-size: 11px;
   padding: 11px 15px 0 15px;
   line-height: 11px;
   vertical-align: middle;
+  opacity: 0.9;
 }
 form.comment-form label {
   font-size: 33px;
@@ -137,6 +139,7 @@ form.comment-form textarea, form.comment-form input:not([type="submit"]) {
   line-height: 33px;
   font-family: inherit;
   width: 100%;
+  border-radius: 5px;
 }
 form.comment-form .math-captcha-form {
   font-size: 33px;
