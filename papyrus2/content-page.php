@@ -11,12 +11,12 @@
   $image_url = $image_data[0];
 ?>
 
-<header class="entry-header p-bg-image-block u-center u-bg-fixed" style="background-image: url(<?php echo $image_url ?>);">
-  <div class="p-bg-image-block-overlay">
-    <?php the_title( '<h1 class="entry-title u-pack-vert">', '</h1>' ); ?>
-  </div>
-</header><!-- .entry-header -->
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class("u-inline"); ?>>
+  <header class="entry-header p-bg-image-block u-center u-bg-fixed u-full-height" style="background-image: url(<?php echo $image_url ?>);">
+    <div class="p-bg-image-block-overlay">
+      <?php the_title( '<h1 class="entry-title u-pack-vert">', '</h1>' ); ?>
+    </div>
+  </header><!-- .entry-header -->
 
 	<div class="entry-content p-content-area">
 		<?php the_content(); ?>
