@@ -13,6 +13,16 @@
 get_header(); ?>
 
 <body <?php body_class(); ?>>
+  <nav class="p-layout-top-nav p-nav-light p-slider p-slider--up u-zi-nav js-scroll-slider-top">
+    <ul class="p-nav-horiz u-pull-right">
+      <li><a class="p-nav-horiz-link" href="/portfolio">Portfolio</a></li>
+      <li><a class="p-nav-horiz-link" href="/guiding-principles">GPS</a></li>
+      <li><a class="p-nav-horiz-link" href="/blog">Blog</a></li>
+    </ul>
+    <ul class="p-nav-horiz">
+      <li><a class="p-image-link p-nav-horiz-link" href="http://papyrusoft.com"><img class="p-icon" src="http://papyrusoft.com/wp-content/themes/papyrus2/assets/papyrus-logo-icon.svg"></a></li>
+    </ul>
+  </nav>
 	<div id="primary" class="content-area u-inline">
 		<main id="main" class="site-main u-inline" role="main">
 
@@ -43,6 +53,17 @@ get_header(); ?>
       $("header h1").fitText({
         maxSize: "initial"
       });
+    });
+
+    var previousScrollTop;
+    $(window).scroll(function () {
+      $slidersTop = $(".js-scroll-slider-top");
+      if(previousScrollTop > $(window).scrollTop() || $(window).scrollTop() < $slidersTop.height()) {
+        $slidersTop.removeClass("p-slider--up");
+      } else {
+        $slidersTop.addClass("p-slider--up");
+      }
+      previousScrollTop = $(window).scrollTop();
     });
   </script>
 </body>

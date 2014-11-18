@@ -21,7 +21,7 @@ get_header(); ?>
     </li>
   </ul> 
 </nav>
-<main class="p-welcome-sign p-slider" id="page-landing">
+<main class="p-welcome-sign p-slider u-full-height u-full-width" id="page-landing">
   <div class="p-welcome-sign-inner">
     <div class="u-cf">
       <figure>
@@ -67,7 +67,7 @@ get_header(); ?>
     </ul>
   </nav>
 </main>
-<main class="p-bg-solid-dark p-slider p-slider--down" id="page-contact">
+<main class="p-bg-solid-dark p-slider p-slider--down u-full-height u-full-width" id="page-contact">
   <div class="p-keyboard-row u-only-desktop"></div>
   <article class="p-content-area">
     <h1 class="js-fit-text">Hello & thanks for your interest!</h1>
