@@ -19,6 +19,9 @@
 <link href='http://fonts.googleapis.com/css?family=Lato:300,300italic' rel='stylesheet' type='text/css'>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<meta name="title" content="Papyrusoft (Patrick Canfield)" />
+<meta name="description" content="Software Engineer - Freelance && Consulting" />
+<link rel="image_src" href="http://papyrusoft.com/wp-content/uploads/2014/10/me4.jpg" />
 
 <?php wp_head(); ?>
 </head>
