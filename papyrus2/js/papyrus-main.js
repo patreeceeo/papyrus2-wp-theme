@@ -1,30 +1,22 @@
 
+this.papyrus = {};
 
-$(function () {
+!(function (papyrus) {
   "use strict";
+  var $slider;
 
-  var debounce = function (fn) {
+  papyrus.debounce = function (fn, time) {
     var timeout;
     return function () {
+      var self = this, args = arguments;
       clearTimeout(timeout);
-      timeout = setTimeout(fn, 200);
+      timeout = setTimeout(function () {
+        fn.call(self, args); 
+      }, time || 200);
     };
   };
 
-  var $slider = $("#page-landing .js-slider"),
-      slideCount = 0;
-
-  $slider.xySlider({
-    slideComplete: function () {
-      if(slideCount === 0) {
-        $(".js-fade-in-1st-slide-complete").removeClass("p-fader--out");
-      }
-      slideCount++;
-    }
-  });
-    
-
-  var showPageForHash = function () {
+  function showPageForHash () {
     switch(location.hash) {
       case "#contact":
         $("#page-landing").addClass("p-slider--up");
@@ -58,10 +50,7 @@ $(function () {
           $("#page-landing").removeClass("p-slider--up");
         }, 500);
     }
-  };
-
-  $(window).hashchange(showPageForHash);
-  showPageForHash();
+  }
 
   $.fn.fitText = function (options) {
     var parent, 
@@ -136,10 +125,32 @@ $(function () {
     });
   };
 
-  $(".js-fit-text").fitText();
+  $(function () {
+    var slideCount = 0;
+    $slider = $("#page-landing .js-slider");
 
-  $(window).resize(debounce(function () {
+    $slider.xySlider({
+      slideComplete: function () {
+        if(slideCount === 0) {
+          $(".js-fade-in-1st-slide-complete").removeClass("p-fader--out");
+        }
+        slideCount++;
+      }
+    });
+  });
+  
+  $(function () {
+    $(".js-fit-text").fitText();
+  });
+
+  $(window).hashchange(showPageForHash);
+
+  $(function () {
+    showPageForHash();
+  });
+
+  $(window).resize(papyrus.debounce(function () {
     $(".js-fit-text").fitText();
   }));
 
-});
+})(this.papyrus);

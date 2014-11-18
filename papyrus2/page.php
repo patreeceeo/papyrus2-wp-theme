@@ -48,6 +48,7 @@ get_header(); ?>
       $("header h1").fitText({
         maxSize: "initial"
       });
+
     });
     $(window).resize(function () {
       $("header h1").fitText({
@@ -56,6 +57,19 @@ get_header(); ?>
     });
 
     var previousScrollTop;
+
+    $(function () {
+      $slidersTop = $(".js-scroll-slider-top");
+
+      if($(window).scrollTop() < $slidersTop.height()) {
+        $slidersTop.removeClass("p-slider--up");
+      }
+
+      $slidersTop.mouseleave(papyrus.debounce(function () {
+        $(this).addClass("p-slider--up");
+      }, 1000));
+    });
+
     $(window).scroll(function () {
       $slidersTop = $(".js-scroll-slider-top");
       if(previousScrollTop > $(window).scrollTop() || $(window).scrollTop() < $slidersTop.height()) {
