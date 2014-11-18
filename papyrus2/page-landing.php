@@ -56,13 +56,13 @@ get_header(); ?>
   <nav class="u-only-mobile u-zi-nav">
     <ul class="p-nav-vert">
       <li>
-        <a class="p-bg-solid-dark" href="/blog">Blog</a>
-      </li>
-      <li>
         <a class="p-bg-solid-dark" href="/portfolio">Portfolio</a>
       </li>
       <li>
-        <a class="p-bg-solid-dark" href="/gps">GPS</a>
+        <a class="p-bg-solid-dark" href="/guiding-principles">GPS</a>
+      </li>
+      <li>
+        <a class="p-bg-solid-dark" href="/blog">Blog</a>
       </li>
     </ul>
   </nav>
