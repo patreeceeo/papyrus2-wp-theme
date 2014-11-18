@@ -99,7 +99,8 @@ $(function () {
       // querying the parent width.
       $(this).css({
         "font-size": "",
-        "line-height": ""
+        "line-height": "",
+        "white-space": "nowrap"
       });
 
       parent = $(this).parent().get(0);
