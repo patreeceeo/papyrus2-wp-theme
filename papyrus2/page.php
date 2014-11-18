@@ -72,7 +72,11 @@ get_header(); ?>
 
     $(window).scroll(function () {
       $slidersTop = $(".js-scroll-slider-top");
-      if(previousScrollTop > $(window).scrollTop() || $(window).scrollTop() < $slidersTop.height()) {
+      scrollTop = $(window).scrollTop();
+      if(
+          (previousScrollTop > scrollTop || scrollTop < $slidersTop.height()) &&
+          scrollTop < $(document).height() - $(window).height() - $slidersTop.height()
+      ) {
         $slidersTop.removeClass("p-slider--up");
       } else {
         $slidersTop.addClass("p-slider--up");
