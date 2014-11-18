@@ -279,7 +279,7 @@ ul.p-nav-horiz {
   }
 
   .p-welcome-sign p {
-    position: static;
+    text-align: center;
   }
 
   .p-welcome-sign .p-welcome-sign-slide {
