@@ -11,6 +11,19 @@ $(function () {
     };
   };
 
+  var $slider = $("#page-landing .js-slider"),
+      slideCount = 0;
+
+  $slider.xySlider({
+    slideComplete: function () {
+      if(slideCount === 0) {
+        $(".js-fade-in-1st-slide-complete").removeClass("p-fader--out");
+      }
+      slideCount++;
+    }
+  });
+    
+
   var showPageForHash = function () {
     switch(location.hash) {
       case "#contact":
@@ -19,7 +32,7 @@ $(function () {
           // In the future, there should be an API for turning off the slider,
           // but for now simply hiding the parent element will suffice.
           $("#page-landing").hide();
-          $("#page-landing .js-slider").xySlider().xySlider("stop");
+          $("#page-landing .js-slider").xySlider("stop");
           $("#page-contact").removeClass("p-slider--down");
         }, 500);
         break;
@@ -29,16 +42,15 @@ $(function () {
         // but for now simply hiding the parent element will suffice.
         $("#page-landing").show();
 
-        var $slider = $("#page-landing .js-slider");
         if($slider.is(":visible")) {
-          $slider.xySlider().xySlider("start");
+          $slider.xySlider("start");
         } else {
-          $slider.xySlider().xySlider("stop");
+          $slider.xySlider("stop");
         }
 
         $(window).resize(function () {
           if($slider.is(":visible")) {
-            $slider.xySlider().xySlider("start");
+            $slider.xySlider("start");
           }
         });
 

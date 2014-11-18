@@ -55,14 +55,15 @@
     this.$slides = options.$slides;
     this.model = options.model;
     this.model.slideCount = this.$slides.length;
+    // bind `this` for _keyupHandler:
     this._keyupHandler = (function (self) {
       var method = self._keyupHandler;
       return function () {
         method.apply(self, arguments); 
       };
     })(this);
+    this._slideCompleteHandler = options.slideComplete;
   };
-
   View.prototype.transitionMap = {
     "down": {
       show: {
@@ -160,6 +161,7 @@
         }
         self.model.isSliding = true;
         self._renderTransitions(self.transitionMap[randomName], function () {
+          self._slideCompleteHandler();
           self.model.isSliding = false;
         });
       }
@@ -199,6 +201,7 @@
           this.model.showNextSlide();
         }
         this._renderTransitions(this.transitionMap[keyName], function () {
+          this._slideCompleteHandler();
           this.model.isSliding = false;
         });
       }
@@ -245,7 +248,8 @@
 
       this.view = new View({
         $slides: $slides,
-        model: this.model
+        model: this.model,
+        slideComplete: this.settings.slideComplete
       });
       this._started = false;
     },

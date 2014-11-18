@@ -126,6 +126,17 @@ ul.p-nav-horiz {
   left: 0;
 }
 
+.p-fader {
+  -webkit-transition: opacity 500ms;
+  transition: opacity 500ms;
+}
+.p-fader.p-fader--out {
+  opacity: 0;
+}
+.p-fader--in {
+  opacity: 1;
+}
+
 .p-welcome-sign {
   /* 350px + 2 * 54px */
   min-height: 458px;

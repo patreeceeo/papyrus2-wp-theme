@@ -46,7 +46,7 @@ get_header(); ?>
         <h1 class="js-fit-text u-pack-vert">Patrick Canfield</h1>
         <h2 class="js-fit-text u-pack-vert"><em>Software Engineer - Freelance &amp;&amp; Consulting</em></h2>
         <p>Let me work my magic on your next project!</p>
-        <p class="u-only-desktop"><em>Figure left: examples of past work. Use the arrow keys to control which thumbnail is shown. Click for details!</em></p>
+        <p class="u-only-desktop p-fader p-fader--out js-fade-in-1st-slide-complete"><em>Figure left: examples of past work. Use the arrow keys to control which thumbnail is shown. Click for details!</em></p>
       </section>
     </div>
     <p class="p-call-to-action">
