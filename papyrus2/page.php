@@ -20,7 +20,7 @@ get_header(); ?>
       <li><a class="p-nav-horiz-link" href="/blog">Blog</a></li>
     </ul>
     <ul class="p-nav-horiz">
-      <li><a class="p-image-link p-nav-horiz-link" href="http://papyrusoft.com"><img class="p-icon" src="http://papyrusoft.com/wp-content/themes/papyrus2/assets/papyrus-logo-icon.svg"></a></li>
+      <li><a class="p-site-logo p-nav-horiz-link" href="http://papyrusoft.com"><img src="http://papyrusoft.com/wp-content/themes/papyrus2/assets/papyrus-logo-icon.svg"></a></li>
     </ul>
   </nav>
 	<div id="primary" class="content-area u-inline">
