@@ -7,7 +7,7 @@ $(function () {
     var timeout;
     return function () {
       clearTimeout(timeout);
-      timeout = setTimeout(fn, 1000);
+      timeout = setTimeout(fn, 200);
     };
   };
 
@@ -77,7 +77,14 @@ $(function () {
         }
       }
 
-
+      // When the text element to be dynamically sized is directly inside a block
+      // element with an automatically determined width, e.g. a div with no matching CSS
+      // width rule or in-line style property, fitText would still use the current width
+      // of the parent as the width to fit the text into. In effect, the text
+      // would shrink with the parent when the window became narrower than the parent
+      // element, but would not grow again because the parent did not grow. The
+      // solution, for now, is to remove in-line font-size from the text element before 
+      // querying the parent width.
       $(this).css({
         "font-size": "",
         "line-height": ""
@@ -85,14 +92,14 @@ $(function () {
 
       parent = $(this).parent().get(0);
 
-
+      // fitText should ensure the text doesn't spill into the padding area only
+      // if the width being fit into is the window width.
       parentWidth = Math.min(
         ($(parent).innerWidth() || Number.POSITIVE_INFINITY), 
-        $(window).width()
+        $(window).width() - cssInt(this, "padding-left") -
+                            cssInt(this, "padding-right")
         ) - cssInt(parent, "padding-left") - 
-            cssInt(parent, "padding-right") - 
-            cssInt(this, "padding-left") -
-            cssInt(this, "padding-right");
+            cssInt(parent, "padding-right");
 
       if(parentWidth !== $(this).data("fit-text-parent-former-width")) {
         $(this).css({
