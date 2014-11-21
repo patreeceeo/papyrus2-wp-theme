@@ -40,7 +40,7 @@
         heightRemaining = $(window).height() - $(element).offset().top;
         $(element).css("flex-basis", heightRemaining);
       }
-      adjust();
+      setTimeout(adjust, 1);
       $(window).resize(adjust);
     });
   });
