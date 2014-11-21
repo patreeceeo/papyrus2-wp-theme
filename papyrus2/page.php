@@ -13,15 +13,19 @@
 get_header(); ?>
 
 <body <?php body_class(); ?>>
-  <nav class="p-layout-top-nav p-nav-light p-slider p-slider--up u-zi-nav js-scroll-slider-top">
-    <ul class="p-nav-horiz u-pull-right">
-      <li><a class="p-nav-horiz-link" href="/portfolio">Portfolio</a></li>
-      <li><a class="p-nav-horiz-link" href="/guiding-principles">GPS</a></li>
-      <li><a class="p-nav-horiz-link" href="/blog">Blog</a></li>
-    </ul>
-    <ul class="p-nav-horiz">
-      <li><a class="p-site-logo p-nav-horiz-link" href="http://papyrusoft.com"><img src="http://papyrusoft.com/wp-content/themes/papyrus2/assets/papyrus-logo-icon.svg"></a></li>
-    </ul>
+  <nav class="p-nav p-nav--light">
+    <ul class="p-nav-horiz p-nav-horiz--bordered u-center-vert">
+      <li class="p-site-logo">
+        <a href="http://papyrusoft.com"><img src="http://papyrusoft.com/wp-content/themes/papyrus2/assets/papyrus-logo-icon.svg"></a>
+        <a href="http://papyrusoft.com">Papyrusoft</a>
+      </li>
+      <li>
+        <ul class="p-nav-vert">
+          <li><a href="/portfolio">Portfolio</a></li>
+          <li><a href="/guiding-principles">GPS</a></li>
+          <li><a href="/blog">Blog</a></li>
+        </ul>
+      </li>
   </nav>
 	<div id="primary" class="content-area u-inline">
 		<main id="main" class="site-main u-inline" role="main">

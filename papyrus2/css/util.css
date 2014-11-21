@@ -83,6 +83,21 @@
 	justify-content: center !important;
 }
 
+.u-center-vert {
+  display: -ms-Flexbox !important;
+	-ms-box-orient: horizontal !important;
+
+	display: -webkit-flex !important;
+	display: -moz-flex !important;
+	display: -ms-flex !important;
+	display: flex !important;
+
+  -webkit-align-items: center !important;
+	-moz-align-items: center !important;
+	-ms-align-items: center !important;
+	align-items: center !important;
+}
+
 .u-full-height {
   display: block;
   height: 100% !important;

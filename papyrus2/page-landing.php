@@ -8,7 +8,7 @@ get_header(); ?>
 
 
 <body <?php body_class("p-bg-solid-dark"); ?>>
-<nav class="p-layout-top-nav u-zi-nav u-only-desktop">
+<nav class="p-nav p-layout-top-nav u-zi-nav u-only-desktop">
   <ul class="p-nav-horiz u-cf">
     <li class="u-pull-right">
       <a class="p-keyboard-key p-keyboard-key--mirror" href="/blog">Blog</a>
@@ -53,16 +53,16 @@ get_header(); ?>
       &raquo; <a class="" href="#contact">Contact me</a>
     </p>
   </div>
-  <nav class="u-only-mobile u-zi-nav">
-    <ul class="p-nav-vert">
+  <nav class="p-nav u-only-mobile u-zi-nav">
+    <ul class="p-nav-vert p-nav-vert--mobile">
       <li>
-        <a class="p-bg-solid-dark" href="/portfolio">Portfolio</a>
+        <a href="/portfolio">Portfolio</a>
       </li>
       <li>
-        <a class="p-bg-solid-dark" href="/guiding-principles">GPS</a>
+        <a href="/guiding-principles">GPS</a>
       </li>
       <li>
-        <a class="p-bg-solid-dark" href="/blog">Blog</a>
+        <a href="/blog">Blog</a>
       </li>
     </ul>
   </nav>

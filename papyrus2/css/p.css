@@ -4,11 +4,6 @@
   color: white;
 }
 
-.p-nav-light {
-  background-color: rgb(255,255,255);
-  color: rgb(0,0,0);
-  border-bottom: 1px solid rgba(0,0,0,0.4);
-}
 
 .p-bg-solid-dark::selection {
   background: white;
@@ -48,19 +43,42 @@
   bottom: 0;
 }
 
+/* To be used on a NAV element wrapping a UL or OL of A elements. */
+.p-nav {
+  color: rgba(255,255,255,0.66);
+}
+
+.p-nav li {
+  font-family: "Lato", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.p-nav a:hover {
+  color: rgba(255,255,255,1);
+}
+
+.p-nav.p-nav--light {
+  background-color: rgb(255,255,255);
+  color: rgba(0,0,0,0.66);
+}
+.p-nav.p-nav--light a:hover {
+  color: rgba(0,0,0,1);
+}
 
 ul.p-nav-vert {
-  margin: 33px 0;
+  margin: 0;
+  padding: 0;
 }
-ul.p-nav-vert li {
+ul.p-nav-vert > li {
   display: block;
-  padding: 16.5px 0;
-  opacity: 0.66;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
   margin: 0 15px;
+}
+ul.p-nav-vert.p-nav-vert--mobile > li {
+  padding: 16.5px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
   text-align: center;
   font-size: 28px;
   line-height: 28px;
+  color: rgb(255, 255, 255);
 }
 ul.p-nav-vert li:last-child,
 ul.p-nav-vert li a {
@@ -70,21 +88,14 @@ ul.p-nav-vert li a {
 ul.p-nav-horiz {
   margin: 0;
   padding: 0;
-  font-family: "Lato", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  opacity: 1;
 }
-.p-nav-horiz li {
+.p-nav-horiz > li {
   display: inline-block;
-  opacity: 0.5;
-}
-.p-nav-horiz li:hover {
-  opacity: 1;
 }
 
-.p-nav-horiz-link {
-  padding: 11px;
-  border: 0;
-  display: inline-block;
+ul.p-nav-horiz ul.p-nav-vert {
+  margin: 11px 15px;
+  border-left: 1px solid rgba(0,0,0,0.5);
 }
 
 .p-keyboard-row {
@@ -243,13 +254,15 @@ ul.p-nav-horiz {
   padding: 33px;
 }
 
-a.p-site-logo {
+.p-site-logo a {
   border: 0;
-  padding: 7px;
+  display: inline-block;
+  vertical-align: middle;
 }
-a.p-site-logo img {
+.p-site-logo img {
   vertical-align: bottom;
-  height: 41px;
+  width: 100px;
+  padding: 7px;
 }
 
 img.p-icon {
