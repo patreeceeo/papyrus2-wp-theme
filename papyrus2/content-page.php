@@ -11,8 +11,8 @@
   $image_url = $image_data[0];
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class("u-inline"); ?>>
-  <header class="entry-header p-bg-image-block u-center u-bg-fixed u-full-height" style="background-image: url(<?php echo $image_url ?>);">
+<article id="post-<?php the_ID(); ?>" <?php post_class("u-flex-column"); ?>>
+  <header class="entry-header p-bg-image-block u-center u-bg-fixed js-flex-fill-remaining-screen-height" style="background-image: url(<?php echo $image_url ?>);">
     <div class="p-bg-image-block-overlay">
       <?php the_title( '<h1 class="entry-title u-pack-vert u-pack-horiz">', '</h1>' ); ?>
     </div>
@@ -32,3 +32,16 @@
 		<?php edit_post_link( __( 'Edit', 'papyrus2' ), '<p class="edit-link">', '</p>' ); ?>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-## -->
+<script type="text/javascript">
+  $(function () {
+    $(".js-flex-fill-remaining-screen-height").each(function (index, element) {
+      function adjust () {
+        var heightRemaining;
+        heightRemaining = $(window).height() - $(element).offset().top;
+        $(element).css("flex-basis", heightRemaining);
+      }
+      adjust();
+      $(window).resize(adjust);
+    });
+  });
+</script>

@@ -98,6 +98,21 @@
 	align-items: center !important;
 }
 
+.u-flex-column {
+  display: -ms-Flexbox !important;
+	-ms-box-orient: horizontal !important;
+
+	display: -webkit-flex !important;
+	display: -moz-flex !important;
+	display: -ms-flex !important;
+	display: flex !important;
+
+  -webkit-flex-direction: column !important;
+  -moz-flex-direction: column !important;
+  -ms-flex-direction: column !important;
+  flex-direction: column !important;
+}
+
 .u-full-height {
   display: block;
   height: 100% !important;
@@ -121,6 +136,7 @@
   text-overflow: ellipsis;
   overflow: hidden;
 }
+
 
 @media (max-width: 700px) {
   .u-only-desktop {
