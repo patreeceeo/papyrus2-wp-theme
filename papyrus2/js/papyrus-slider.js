@@ -174,7 +174,7 @@
     $(document).unbind("keyup", this._keyupHandler);
   };
   View.prototype._keyupHandler = function (e) {
-    var keyCode, keyName;
+    var keyCode, keyName, self = this;
     keyCode = e.keyCode || e.which;
     if(!this.model.isSliding) {
       switch(keyCode) {
@@ -201,8 +201,8 @@
           this.model.showNextSlide();
         }
         this._renderTransitions(this.transitionMap[keyName], function () {
-          this._slideCompleteHandler();
-          this.model.isSliding = false;
+          self._slideCompleteHandler();
+          self.model.isSliding = false;
         });
       }
     }
