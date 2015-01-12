@@ -23,7 +23,7 @@ get_header(); ?>
         <ul class="p-nav-vert">
           <li><a href="/portfolio">Portfolio</a></li>
           <li><a href="/guiding-principles">GPS</a></li>
-          <li><a href="/blog">Blog</a></li>
+          <!-- li><a href="/blog">Blog</a></li -->
         </ul>
       </li>
   </nav>

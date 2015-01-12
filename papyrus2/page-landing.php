@@ -10,9 +10,11 @@ get_header(); ?>
 <body <?php body_class("p-bg-solid-dark"); ?>>
 <nav class="p-nav p-layout-top-nav u-zi-nav u-only-desktop">
   <ul class="p-nav-horiz u-cf">
+    <!--
     <li class="u-pull-right">
       <a class="p-keyboard-key p-keyboard-key--mirror" href="/blog">Blog</a>
     </li>
+    -->
     <li class="u-pull-left">
       <a class="p-keyboard-key" href="/portfolio">Portfolio</a>
     </li>
@@ -61,9 +63,9 @@ get_header(); ?>
       <li>
         <a href="/guiding-principles">GPS</a>
       </li>
-      <li>
+      <!--li>
         <a href="/blog">Blog</a>
-      </li>
+      </li-->
     </ul>
   </nav>
 </main>
@@ -76,7 +78,7 @@ get_header(); ?>
     <p>If what you want is a website, the above might seem a bit over-involved. A website is a piece of software and, however, no piece of software is ever really as simple as it appears to be from the outside. That's part of the value I can provide: aside from actually writing the software, I can help determine what is relatively easy to create and what is relatively hard to create. Websites are often simpler than other kinds of software, but it's better to invest a little too much time and energy into the Spec than to waste days or weeks of developer time, <strong>and your money</strong>, on the wrong idea!</p>
     <p>Building quality software is not easy. It's not just about fulfilling those needs, wants and dreams, but it's also about being <em>maintainable</em>, <em>robust</em> and <em>secure</em>. That is why you should choose someone with a track record of building software with these qualities, someone like <em>moi.</em>~</p>
     <p>My typical rate is <strong>USD $35/hour</strong>, the rate for a given project may be slightly higher or lower depending on the nature of the work and is decided on a case-by-case basis. Consultation with the objective of defining or refining the Spec alluded to above is not included in billable hours.</p>
-    <p>If you'd like, you can check out my <a href="/portfolio">portfolio</a> and my <a href="/resume">resume</a>.</p>
+    <p>If you'd like, you can check out my <a href="/portfolio">portfolio</a>.</p>
     <p>Please direct inquiries to:</p>
     <p class="u-center-text"><a href="mailto:patrick@papyrusoft.com">patrick@papyrusoft.com</a></p>
   </article>
